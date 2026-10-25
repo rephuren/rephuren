@@ -82,7 +82,19 @@ $ cat ~/focus
 
 <img src="assets/umbra.png" alt="дашборд umbra" width="720"/>
 
-> Скриншоты — демо-режим на синтетических данных. Реальных скачиваний и сканов пока нет.
+### [`wyrm`](https://github.com/rephuren/wyrm): coverage-guided фаззер в духе AFL
+
+Мутирует входные данные, следит за покрытием кода через shared-memory карту и сохраняет всё, что роняет цель под ASan/UBSan. Своя инструментация покрытия, мутатор в стиле havoc, минимизатор крашей на delta-debugging. Три учебные цели с намеренными багами как полигон.
+
+`c++` · `clang` · `asan` · `ubsan` · 19 тестов
+
+```
+запусков: 4000   покрытие: 280 рёбер   корпус: 9 входов   крашей: 30   скорость: 107/с
+  ▓ crashes/crash-1.bin  — targets/vuln_buffer.cpp:15:36: index 16 out of bounds for type 'char[16]'
+  ▓ crashes/crash-3.bin  — targets/vuln_buffer.cpp:31:18: index 903218 out of bounds for type 'int[4]'
+```
+
+> Скриншоты — демо-режим на синтетических данных. Реальных скачиваний и сканов пока нет. Вывод `wyrm` — настоящий прогон на учебных целях.
 
 ## ▓ СТАТИСТИКА
 
