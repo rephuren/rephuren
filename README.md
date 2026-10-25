@@ -149,17 +149,9 @@ pc
 
 ## ▓ СТАТИСТИКА
 
-<details>
-<summary>карточки GitHub (заполнятся, когда проекты станут публичными)</summary>
+<p align="center"><img src="assets/stats.svg" alt="статистика профиля: проекты, тесты, коммиты, языки" width="830"/></p>
 
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=rephuren&show_icons=true&hide_border=true&bg_color=050505&title_color=b3000f&text_color=e8e8e8&icon_color=b3000f&ring_color=b3000f"/>
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=rephuren&layout=compact&hide_border=true&bg_color=050505&title_color=b3000f&text_color=e8e8e8"/>
-
-</div>
-
-</details>
+<sub>Считается скриптом <code>scripts/make_assets.py</code> по публичным репозиториям: тесты это число тестов проектов, языки по данным GitHub (в байтах). Это не рейтинг, а сводка того, что здесь собрано.</sub>
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 
