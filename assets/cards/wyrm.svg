@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 128" width="400" height="128" role="img" aria-label="wyrm: coverage-guided фаззер">
+  <title>wyrm: coverage-guided фаззер</title>
+  <defs>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#fff" opacity="0.04"/></pattern>
+    <style>
+    text { font-family: 'Courier New', Menlo, Consolas, monospace; }
+    .jit { animation: jit 4.2s infinite steps(1); }
+    .blink { animation: blink 1.1s infinite steps(1); }
+    @keyframes jit { 0%,93%,100%{transform:translate(0,0)} 94%{transform:translate(-3px,1px)} 96%{transform:translate(2px,0)} 98%{transform:translate(-1px,0)} }
+    @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="399" height="127" rx="2" fill="#0b0b0b" stroke="#2a2a2a"/>
+  <rect x="0" y="0" width="4" height="128" fill="#b3000f"/>
+  <g class="jit"><text x="24" y="40" font-size="22" font-weight="700" fill="#e8e8e8" letter-spacing="3">WYRM</text></g>
+  <text x="24" y="64" font-size="13" fill="#e8e8e8">coverage-guided фаззер</text>
+  <text x="24" y="84" font-size="11.5" fill="#8a8a8a">persistent-режим, воркеры, дедупликация</text>
+  <text x="24" y="110" font-size="11" fill="#707070">c++ · asan</text>
+  <text x="376" y="110" font-size="11" fill="#8a8a8a" text-anchor="end">39 тестов</text>
+  <text x="376" y="40" font-size="14" fill="#b3000f" text-anchor="end">&gt;<tspan class="blink">_</tspan></text>
+  <rect width="400" height="128" fill="url(#scan)"/>
+</svg>

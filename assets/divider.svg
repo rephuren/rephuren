@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 22" width="830" height="22" role="presentation" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#b3000f" stop-opacity="0"/><stop offset="0.5" stop-color="#b3000f"/><stop offset="1" stop-color="#b3000f" stop-opacity="0"/></linearGradient>
+    <style>
+      text { font-family: 'Courier New', Menlo, Consolas, monospace; }
+      .a { animation: f 3.1s infinite steps(1); } .b { animation: f 2.3s infinite steps(1) 0.7s; }
+      @keyframes f { 0%,86%,100%{opacity:1} 90%{opacity:.15} 94%{opacity:.7} }
+    </style>
+  </defs>
+  <rect x="0" y="10.5" width="830" height="1" fill="url(#g)"/>
+  <g class="a"><text x="388" y="15" font-size="12" fill="#b3000f">▓</text></g>
+  <g class="b"><text x="402" y="15" font-size="12" fill="#8a8a8a">▒</text></g>
+  <text x="416" y="15" font-size="12" fill="#707070">░</text>
+</svg>

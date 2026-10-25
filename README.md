@@ -15,7 +15,18 @@ $ cat ~/focus
         ai security (ниже подробно)
 ```
 
+<p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
+
 ## ▓ ПРОЕКТЫ
+
+<p align="center">
+<a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
+<a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
+<a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a>
+<a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a>
+<a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a>
+<a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a>
+</p>
 
 ### [`citadel`](https://github.com/rephuren/citadel): шлюз безопасности для MCP-агентов
 
@@ -67,6 +78,8 @@ $ cat ~/focus
 
 > Скриншоты `ghoul`, `shroud` и `silhouette` — демо-режим на синтетических данных, реальных сканов и перехваченных атак пока нет. Вывод `wyrm` и `basilisk` — настоящие прогоны на учебных целях и файлах, а таблица `citadel` посчитана на полигоне с намеренно наивным агентом, а не на настоящей модели.
 
+<p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
+
 ## ▓ СТЕК
 
 **ЯЗЫКИ**
@@ -109,6 +122,8 @@ $ cat ~/focus
 
 ![kali linux](https://img.shields.io/badge/kali%20linux-050505?style=flat-square&labelColor=050505&color=050505&logo=kalilinux&logoColor=b3000f) ![parrot os](https://img.shields.io/badge/parrot%20os-050505?style=flat-square&labelColor=050505&color=050505&logo=parrotsecurity&logoColor=b3000f) ![tails](https://img.shields.io/badge/tails-050505?style=flat-square&labelColor=050505&color=050505&logo=tails&logoColor=e8e8e8) ![linux](https://img.shields.io/badge/linux-050505?style=flat-square&labelColor=050505&color=050505&logo=linux&logoColor=e8e8e8) ![wsl](https://img.shields.io/badge/wsl-050505?style=flat-square&labelColor=050505&color=050505&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3QgeD0iMS41IiB5PSIxLjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIyMSIgcng9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U4ZThlOCIgc3Ryb2tlLXdpZHRoPSIxLjYiLz48dGV4dCB4PSIxMiIgeT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiBmb250LWZhbWlseT0iTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjguNSIgZmlsbD0iI2U4ZThlOCI%2Bd3NsPC90ZXh0Pjwvc3ZnPg%3D%3D) ![docker](https://img.shields.io/badge/docker-050505?style=flat-square&labelColor=050505&color=050505&logo=docker&logoColor=e8e8e8) ![virtualbox](https://img.shields.io/badge/virtualbox-050505?style=flat-square&labelColor=050505&color=050505&logo=virtualbox&logoColor=e8e8e8) ![git](https://img.shields.io/badge/git-050505?style=flat-square&labelColor=050505&color=050505&logo=git&logoColor=e8e8e8) ![vs code](https://img.shields.io/badge/vs%20code-050505?style=flat-square&labelColor=050505&color=050505&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3QgeD0iMS41IiB5PSIxLjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIyMSIgcng9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U4ZThlOCIgc3Ryb2tlLXdpZHRoPSIxLjYiLz48dGV4dCB4PSIxMiIgeT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIiBmb250LWZhbWlseT0iTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjExIiBmaWxsPSIjZThlOGU4Ij52czwvdGV4dD48L3N2Zz4%3D)
 
+<p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
+
 ## ▓ СЕТАП
 
 ```bash
@@ -130,6 +145,8 @@ pc
            Kali Linux (dual boot)
 ```
 
+<p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
+
 ## ▓ СТАТИСТИКА
 
 <details>
@@ -144,7 +161,11 @@ pc
 
 </details>
 
+<p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
+
 ## ▓ КОНТАКТЫ
 
 - telegram: [@rephuren](https://t.me/rephuren) · [@wx1ze](https://t.me/wx1ze)
 - почта: [misxnthropy@gmail.com](mailto:misxnthropy@gmail.com)
+
+<p align="center"><img src="assets/footer.svg" alt="exit 0" width="100%"/></p>
