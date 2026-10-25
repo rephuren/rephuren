@@ -92,13 +92,13 @@ pc
 
 <img src="assets/shroud.png" alt="оригинал, стего и плоскость LSB" width="720"/>
 
-### [`umbra`](https://github.com/rephuren/umbra): монитор внешней поверхности атаки
+### [`silhouette`](https://github.com/rephuren/silhouette): монитор внешней поверхности атаки
 
 Показывает, что о домене видно снаружи: поддомены из журналов сертификатов, висячие CNAME и возможный захват поддомена, слабые заголовки, версии ПО, почтовая защита. По умолчанию пассивный; активное зондирование включается только явным флагом с подтверждением права на проверку. Считает оценку A–F и показывает, что изменилось с прошлого скана.
 
 `python` · `dnspython` · `sqlite` · 27 тестов
 
-<img src="assets/umbra.png" alt="дашборд umbra" width="720"/>
+<img src="assets/silhouette.png" alt="дашборд silhouette" width="720"/>
 
 ### [`wyrm`](https://github.com/rephuren/wyrm): coverage-guided фаззер в духе AFL
 
