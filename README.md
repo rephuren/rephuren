@@ -56,6 +56,24 @@ $ cat ~/focus
 
 ![kali linux](https://img.shields.io/badge/kali%20linux-050505?style=flat-square&labelColor=050505&color=050505&logo=kalilinux&logoColor=b3000f) ![parrot os](https://img.shields.io/badge/parrot%20os-050505?style=flat-square&labelColor=050505&color=050505&logo=parrotsecurity&logoColor=b3000f) ![tails](https://img.shields.io/badge/tails-050505?style=flat-square&labelColor=050505&color=050505&logo=tails&logoColor=e8e8e8) ![linux](https://img.shields.io/badge/linux-050505?style=flat-square&labelColor=050505&color=050505&logo=linux&logoColor=e8e8e8) ![wsl](https://img.shields.io/badge/wsl-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![docker](https://img.shields.io/badge/docker-050505?style=flat-square&labelColor=050505&color=050505&logo=docker&logoColor=e8e8e8) ![virtualbox](https://img.shields.io/badge/virtualbox-050505?style=flat-square&labelColor=050505&color=050505&logo=virtualbox&logoColor=e8e8e8) ![git](https://img.shields.io/badge/git-050505?style=flat-square&labelColor=050505&color=050505&logo=git&logoColor=e8e8e8) ![vs code](https://img.shields.io/badge/vs%20code-050505?style=flat-square&labelColor=050505&color=050505&logo=visualstudiocode&logoColor=e8e8e8)
 
+## ▓ СЕТАП
+
+```bash
+$ neofetch --machines
+
+mac
+  модель : MacBook Pro · Apple M5 (10 ядер)
+  память : 16 GB · 512 GB ssd
+  ос     : macOS 26
+
+pc
+  cpu    : AMD Ryzen 7 5700X
+  gpu    : NVIDIA RTX 3080
+  ram    : 64 GB DDR4 · HyperX Renegade RGB
+  плата  : MSI B450
+  ос     : Windows (твикнутая) · Kali Linux (dual boot)
+```
+
 ## ▓ ПРОЕКТЫ
 
 ### [`ghoul`](https://github.com/rephuren/ghoul): SSH-ловушка с живым дашбордом
@@ -104,3 +122,8 @@ $ cat ~/focus
 <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=rephuren&layout=compact&hide_border=true&bg_color=050505&title_color=b3000f&text_color=e8e8e8"/>
 
 </div>
+
+## ▓ КОНТАКТЫ
+
+- telegram: [@rephuren](https://t.me/rephuren) · [@wx1ze](https://t.me/wx1ze)
+- почта: [misxnthropy@gmail.com](mailto:misxnthropy@gmail.com)
