@@ -9,8 +9,10 @@ $ whoami
 misxnthropy
 
 $ cat ~/focus
-направление : информационная безопасность, защита и исследование
-стек        : python · typescript · c · c++ · bash · linux · osint · ai security (ниже подробно)
+фокус : инфобез, защита, исследования
+стек  : python · typescript · c · c++
+        bash · linux · osint
+        ai security (ниже подробно)
 ```
 
 ## ▓ ПРОЕКТЫ
@@ -113,16 +115,19 @@ $ cat ~/focus
 $ neofetch --machines
 
 mac
-  модель : MacBook Pro · Apple M5 (10 ядер)
+  модель : MacBook Pro
+           Apple M5 (10 ядер)
   память : 16 GB · 512 GB ssd
   ос     : macOS 26
 
 pc
   cpu    : AMD Ryzen 7 5700X
   gpu    : NVIDIA RTX 3080
-  ram    : 64 GB DDR4 · HyperX Renegade RGB
+  ram    : 64 GB DDR4
+           HyperX Renegade RGB
   плата  : MSI B450
-  ос     : Windows (твикнутая) · Kali Linux (dual boot)
+  ос     : Windows (твикнутая)
+           Kali Linux (dual boot)
 ```
 
 ## ▓ СТАТИСТИКА
