@@ -11,7 +11,7 @@ misxnthropy
 $ cat ~/focus
 направление : информационная безопасность, защита и исследование
 сейчас      : ловушки для атакующих и разбор того, что они делают
-стек        : python · c · c++ · bash · linux (ниже подробно)
+стек        : python · c · c++ · bash · linux · osint · ai security (ниже подробно)
 ```
 
 ## ▓ СТЕК
@@ -27,6 +27,18 @@ $ cat ~/focus
 **ВЕБ**
 
 ![burp suite](https://img.shields.io/badge/burp%20suite-050505?style=flat-square&labelColor=050505&color=050505&logo=portswigger&logoColor=b3000f) ![sqlmap](https://img.shields.io/badge/sqlmap-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![ffuf](https://img.shields.io/badge/ffuf-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![gobuster](https://img.shields.io/badge/gobuster-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![owasp zap](https://img.shields.io/badge/owasp%20zap-050505?style=flat-square&labelColor=050505&color=050505&logo=owasp&logoColor=e8e8e8)
+
+**OSINT**
+
+![spiderfoot](https://img.shields.io/badge/spiderfoot-050505?style=flat-square&labelColor=050505&color=050505&logoColor=b3000f) ![maltego](https://img.shields.io/badge/maltego-050505?style=flat-square&labelColor=050505&color=050505&logoColor=b3000f) ![shodan](https://img.shields.io/badge/shodan-050505?style=flat-square&labelColor=050505&color=050505&logoColor=b3000f) ![censys](https://img.shields.io/badge/censys-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![recon-ng](https://img.shields.io/badge/recon--ng-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![theharvester](https://img.shields.io/badge/theharvester-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![amass](https://img.shields.io/badge/amass-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![exiftool](https://img.shields.io/badge/exiftool-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![sherlock](https://img.shields.io/badge/sherlock-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![google dorks](https://img.shields.io/badge/google%20dorks-050505?style=flat-square&labelColor=050505&color=050505&logo=google&logoColor=e8e8e8)
+
+**AI / LLM SECURITY**
+
+![garak](https://img.shields.io/badge/garak-050505?style=flat-square&labelColor=050505&color=050505&logoColor=b3000f) ![pyrit](https://img.shields.io/badge/pyrit-050505?style=flat-square&labelColor=050505&color=050505&logoColor=b3000f) ![promptfoo](https://img.shields.io/badge/promptfoo-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![owasp llm top 10](https://img.shields.io/badge/owasp%20llm%20top%2010-050505?style=flat-square&labelColor=050505&color=050505&logo=owasp&logoColor=e8e8e8) ![mitre atlas](https://img.shields.io/badge/mitre%20atlas-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![mcp security](https://img.shields.io/badge/mcp%20security-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8)
+
+**ДЕТЕКТ И BLUE TEAM**
+
+![sigma](https://img.shields.io/badge/sigma-050505?style=flat-square&labelColor=050505&color=050505&logoColor=b3000f) ![yara](https://img.shields.io/badge/yara-050505?style=flat-square&labelColor=050505&color=050505&logoColor=b3000f) ![suricata](https://img.shields.io/badge/suricata-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![zeek](https://img.shields.io/badge/zeek-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![mitre att&ck](https://img.shields.io/badge/mitre%20att&ck-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![atomic red team](https://img.shields.io/badge/atomic%20red%20team-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![nuclei](https://img.shields.io/badge/nuclei-050505?style=flat-square&labelColor=050505&color=050505&logoColor=e8e8e8) ![honeypots](https://img.shields.io/badge/honeypots-050505?style=flat-square&labelColor=050505&color=050505&logoColor=b3000f)
 
 **ЭКСПЛУАТАЦИЯ И ПАРОЛИ**
 
