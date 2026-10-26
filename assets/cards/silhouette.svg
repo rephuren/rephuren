@@ -16,7 +16,7 @@
   <text x="24" y="64" font-size="13" fill="#e8e8e8">монитор поверхности атаки</text>
   <text x="24" y="84" font-size="11.5" fill="#8a8a8a">поддомены, висячие CNAME, оценка A–F</text>
   <text x="24" y="110" font-size="11" fill="#707070">python · dnspython</text>
-  <text x="376" y="110" font-size="11" fill="#8a8a8a" text-anchor="end">45 тестов</text>
+  <text x="376" y="110" font-size="11" fill="#8a8a8a" text-anchor="end">53 теста</text>
   <text x="376" y="40" font-size="14" fill="#b3000f" text-anchor="end">&gt;<tspan class="blink">_</tspan></text>
   <rect width="400" height="128" fill="url(#scan)"/>
 </svg>
