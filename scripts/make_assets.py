@@ -10,6 +10,7 @@ RED, TEXT, DIM, FAINT, PANEL, LINE = "#b3000f", "#e8e8e8", "#8a8a8a", "#707070",
 PROJECTS = [
     ("citadel", "шлюз безопасности MCP-агентов", "политики, taint tracking, бенчмарк атак", "typescript · mcp", "50 тестов"),
     ("basilisk", "аудит MCP и инструментов LLM", "инъекции, скрытые символы, подмена", "typescript · sarif", "65 тестов"),
+    ("ectoplasm", "разбор сессий ИИ-агентов", "какой текст привёл к какому действию", "python · sarif", "89 тестов"),
     ("ghoul", "SSH-ловушка с живым дашбордом", "пароли, команды и реверс-шеллы ботов", "python · asyncssh", "29 тестов"),
     ("shroud", "детектор стеганографии", "хвост файла, метаданные, LSB, RS-анализ", "python · numpy", "24 теста"),
     ("silhouette", "монитор поверхности атаки", "поддомены, висячие CNAME, оценка A–F", "python · dnspython", "53 теста"),
@@ -91,7 +92,7 @@ def footer() -> str:
 def frame_images() -> None:
     """Тонкая серая рамка 2 px: на чёрном фоне едва заметна, а на белом странице светлой темы не даёт картинке «висеть коробкой»."""
     from PIL import Image
-    for name in ("ghoul", "shroud", "silhouette", "wyrm", "basilisk", "citadel"):
+    for name in ("ghoul", "shroud", "silhouette", "wyrm", "basilisk", "citadel", "ectoplasm"):
         path = ASSETS / f"{name}.png"
         if not path.exists():
             continue
@@ -116,7 +117,9 @@ def stats_svg() -> str:
     names = [p[0] for p in PROJECTS]
     langs: dict[str, int] = {}
     commits = 0
+    releases = 0
     for n in names:
+        releases += len(gh_json("api", f"repos/rephuren/{n}/releases") or [])
         for lang, size in (gh_json("api", f"repos/rephuren/{n}/languages") or {}).items():
             langs[lang] = langs.get(lang, 0) + size
         data = gh_json("api", "graphql", "-f", f'query={{repository(owner:"rephuren",name:"{n}"){{defaultBranchRef{{target{{... on Commit{{history{{totalCount}}}}}}}}}}}}')
@@ -136,7 +139,7 @@ def stats_svg() -> str:
         bar.append(f'<rect x="{x:.1f}" y="150" width="{max(w - 2, 1):.1f}" height="8" fill="{colors[i]}"/>')
         x += w
         legend.append(f'<rect x="{24 + i * 156}" y="178" width="9" height="9" fill="{colors[i]}"/><text x="{40 + i * 156}" y="187" font-size="12" fill="{TEXT}">{escape(lang)}</text><text x="{40 + i * 156}" y="203" font-size="11" fill="{DIM}">{100 * size / total:.0f}%</text>')
-    numbers = [(str(len(names)), "проектов"), (str(tests), "тестов"), (str(len(names)), "релизов"), (str(commits), "коммитов")]
+    numbers = [(str(len(names)), "проектов"), (str(tests), "тестов"), (str(releases), "релизов"), (str(commits), "коммитов")]
     cells = "".join(
         f'<g class="n"><text x="{24 + i * 200}" y="88" font-size="46" font-weight="700" fill="{RED if i == 1 else TEXT}">{escape(v)}</text>'
         f'<text x="{24 + i * 200}" y="112" font-size="12" fill="{DIM}" letter-spacing="2">{escape(label.upper())}</text></g>'

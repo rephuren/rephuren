@@ -22,6 +22,7 @@ $ cat ~/focus
 <p align="center">
 <a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
 <a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
+<a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
 <a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a>
 <a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a>
 <a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a>
@@ -43,6 +44,14 @@ $ cat ~/focus
 `typescript` · `node` · `sarif` · 0 зависимостей · 65 тестов
 
 <img src="assets/basilisk.png" alt="отчёт basilisk" width="720"/>
+
+### [`ectoplasm`](https://github.com/rephuren/ectoplasm): разбор сессий ИИ-агентов после инцидента
+
+Читает журнал сессии агента (Claude Code, Codex, общий JSONL) и отвечает, какой недоверенный текст привёл к опасному действию. Следит за происхождением данных (страницы, файлы из чужих репозиториев, ответы MCP), ищет в них указания к агенту и скрытые Unicode-символы, связывает их с командами и правками и находит «смертельную тройку» в пределах одного хода. Каждая находка идёт с уровнем уверенности и цепочкой событий. Выдаёт HTML-отчёт, SARIF и JSON, ставится хуком перед инструментами Claude Code, умеет сканировать папку с сессиями параллельно с кэшем. Рядом лежит разбор десяти публичных атак на агентов и открытый размеченный набор из 75 синтетических сессий. Вместе с `basilisk` (до) и `citadel` (во время) закрывает цикл «до, во время, после».
+
+`python` · `sarif` · `github action` · 89 тестов
+
+<img src="assets/ectoplasm.png" alt="отчёт ectoplasm" width="560"/>
 
 ### [`ghoul`](https://github.com/rephuren/ghoul): SSH-ловушка с живым дашбордом
 
@@ -76,7 +85,7 @@ $ cat ~/focus
 
 <img src="assets/wyrm.png" alt="прогон wyrm: persistent и 4 воркера" width="720"/>
 
-> Скриншоты `ghoul`, `shroud` и `silhouette` — демо-режим на синтетических данных, реальных сканов и перехваченных атак пока нет. Вывод `wyrm` и `basilisk` — настоящие прогоны на учебных целях и файлах, а таблица `citadel` посчитана на полигоне с намеренно наивным агентом, а не на настоящей модели.
+> Скриншоты `ghoul`, `shroud`, `silhouette` и `ectoplasm` — демо-режим на синтетических данных (у `ectoplasm` набор и метрики тоже синтетические и оптимистичны, читатель для Codex не проверен на реальных журналах), реальных сканов и перехваченных атак пока нет. Вывод `wyrm` и `basilisk` — настоящие прогоны на учебных целях и файлах, а таблица `citadel` посчитана на полигоне с намеренно наивным агентом, а не на настоящей модели.
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 
