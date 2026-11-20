@@ -12,101 +12,47 @@
 
 ## ▓ PROJECTS
 
-<p align="center">
-<a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
-<a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
-<a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
-<a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a>
-<a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a>
-<a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a>
-<a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a>
-<a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a>
-<a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a>
-<a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a>
-<a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a>
-</p>
+<table>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a></td><td valign="middle">What it does: <b>A gateway between an AI client and MCP servers.</b><br/>Inside: call policies, taint tracking, a block on the "lethal trifecta", tool-definition pinning.<br/>Checked: a benchmark on a range with a deliberately naive agent: 9 of 9 attacks pass without the gateway, none with it.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a></td><td valign="middle">What it does: <b>Looks in MCP configs and tool descriptions for what a model would read as instructions.</b><br/>Inside: hidden instructions, invisible Unicode, image leaks, shadowing; `pin` and `verify` catch changes after approval.<br/>Checked: 65 tests and runs on training targets.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a></td><td valign="middle">What it does: <b>From an agent session log, shows which foreign text led to a dangerous action.</b><br/>Inside: confidence level and event chain, a hook, HTML and SARIF, an open set of 75 labelled sessions.<br/>Checked: 93 tests; demo on synthetic sessions.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a></td><td valign="middle">What it does: <b>A test stand for LLM applications.</b><br/>Inside: 18 attacks with canaries in the prompt, mapped to the OWASP LLM Top 10 and MITRE ATLAS; targets: endpoint, command, mocks.<br/>Checked: 16 tests; not run against a real model.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a></td><td valign="middle">What it does: <b>A defensive rule engine in Rust.</b><br/>Inside: a Sigma and YARA subset, logs and files, an ATT&CK summary; unsupported rules are rejected with a reason.<br/>Checked: 26 tests on my own rules and invented data, not on SigmaHQ.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a></td><td valign="middle">What it does: <b>A passive network sensor.</b><br/>Inside: a C core reads pcap (DNS, TLS SNI), a Go analyzer finds beacons, DNS tunnels and scans, SQLite and a dashboard.<br/>Checked: 74 checks, core fuzzed with wyrm with no crashes; not run on live traffic.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a></td><td valign="middle">What it does: <b>Binary dissection.</b><br/>Inside: ELF and PE parsers in Go, hardening, imports, entropy, strings, ImHex patterns, teaching labs.<br/>Checked: 21 tests, cross-checked against `debug/elf` and `debug/pe`; ImHex and labs not run live.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a></td><td valign="middle">What it does: <b>An SSH trap with a fake shell.</b><br/>Inside: passwords, commands and download links from bots, own dashboard; nothing is executed.<br/>Checked: 29 tests and a demo on synthetic data, not on real bots.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a></td><td valign="middle">What it does: <b>A steganography detector for images.</b><br/>Inside: file tails, metadata, LSB, RS analysis, chi-square, JPEG DCT; every verdict is explained.<br/>Checked: 24 tests.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a></td><td valign="middle">What it does: <b>A domain's external attack surface.</b><br/>Inside: subdomains, dangling CNAMEs, headers, email hardening, A–F grade, scan diff, `meta`, Shodan, nuclei.<br/>Checked: 100 tests; Shodan and nuclei on mocks only.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a></td><td valign="middle">What it does: <b>A coverage-guided C++ fuzzer in the AFL spirit.</b><br/>Inside: shared-memory coverage, crash minimizer, persistent mode, workers; applied to the chimera core.<br/>Checked: 50 tests; slower and less clever than AFL++.</td></tr>
+</table>
 
-**[`citadel`](https://github.com/rephuren/citadel).** Sits between an AI client and MCP servers: call policies, taint tracking, a block on the "lethal trifecta" (private data + untrusted content + an outbound channel) in one session, and pinning of tool definitions against rug pulls. Ships with a range of deliberately vulnerable demo servers and a reproducible benchmark: 9 attacks all succeed without the gateway and none with full protection.
+<details><summary>screenshots</summary>
 
-`typescript` · `node` · `mcp` · zero dependencies · 50 tests
-
-<details><summary>screenshot</summary>
+**`citadel`**
 
 <img src="assets/citadel.png" alt="citadel" width="720"/>
 
-</details>
-
-**[`basilisk`](https://github.com/rephuren/basilisk).** Reads MCP client configs and tool lists as data and looks for what a model would read as instructions: hidden instructions, invisible Unicode, data-leaking markdown images, tool shadowing, secrets. `pin` and `verify` catch a tool definition changed after approval.
-
-`typescript` · `node` · `sarif` · zero dependencies · 65 tests
-
-<details><summary>screenshot</summary>
+**`basilisk`**
 
 <img src="assets/basilisk.png" alt="basilisk" width="720"/>
 
-</details>
+**`ectoplasm`**
 
-**[`ectoplasm`](https://github.com/rephuren/ectoplasm).** From a session log (Claude Code, Codex, generic JSONL) it shows which untrusted text led to a dangerous action, with a confidence level and the chain of events. PreToolUse hook, HTML report, SARIF, and an open dataset of 75 labelled synthetic sessions. Together with `basilisk` (before) and `citadel` (during) it covers the cycle before, during and after.
+<img src="assets/ectoplasm.png" alt="ectoplasm" width="720"/>
 
-`python` · `sarif` · `github action` · 93 tests
-
-<details><summary>screenshot</summary>
-
-<img src="assets/ectoplasm.png" alt="ectoplasm" width="560"/>
-
-</details>
-
-**[`exorcist`](https://github.com/rephuren/exorcist).** A test stand for LLM applications: plants harmless canaries in the system prompt and uses 18 attack variants (instruction override, indirect injection via a document, prompt leakage, exfiltration through an image URL, tool calls driven by foreign text) to see what the app gave away or executed. Probes map to the OWASP LLM Top 10 and MITRE ATLAS; targets are an OpenAI-compatible endpoint, a command, or two teaching mocks. Not run against a real model.
-
-`python` · `owasp llm` · `mitre atlas` · zero dependencies · 16 tests
-
-**[`banshee`](https://github.com/rephuren/banshee).** A defensive rule engine in Rust: reads a subset of Sigma and YARA, runs it over event logs and files, and summarizes hits by MITRE ATT&CK technique. Whatever the engine does not understand is rejected with a reason, never silently skipped. Tested on my own rules and invented data, not on SigmaHQ.
-
-`rust` · `sigma` · `yara` · `mitre att&ck` · 26 tests
-
-**[`chimera`](https://github.com/rephuren/chimera).** A passive sensor: a C core parses pcap (DNS, TLS SNI, flows) into SQLite, a Go analyzer looks for beacons, DNS tunnels and scans and serves a dashboard. Checked on a synthetic pcap, not on live traffic; host agents are not there yet.
-
-`c` · `go` · `sql` · `sqlite` · 74 checks (59 in C, 15 in Go)
-
-**[`necropsy`](https://github.com/rephuren/necropsy).** Binary dissection: own dependency-free ELF and PE parsers in Go (checksec-style hardening, imports, per-section entropy), classified ASCII/UTF-16 strings, ImHex patterns for the headers, plus two local x86-64 exploitation labs with pwntools walkthroughs (`ret2win`, `fmt-leak`). Parsers are cross-checked against `debug/elf` and `debug/pe` on real binaries; the ImHex patterns have not been run inside ImHex, and the labs are C-built teaching targets rather than hand-written assembly, compile-checked in CI but not run live (built on Mac arm64, no Linux x86-64 at hand).
-
-`go` · `imhex` · `pwntools` · 21 tests
-
-**[`ghoul`](https://github.com/rephuren/ghoul).** Pretends to be a compromised server and records which passwords bots try, which commands they run and where they download malware from. The shell is fake; nothing is executed.
-
-`python` · `asyncssh` · `sqlite` · own web dashboard
-
-<details><summary>screenshot</summary>
+**`ghoul`**
 
 <img src="assets/ghoul.png" alt="ghoul" width="720"/>
 
-</details>
-
-**[`shroud`](https://github.com/rephuren/shroud).** Finds data in file tails, metadata and pixel low bits (zsteg-style LSB, RS analysis, chi-square, JPEG DCT); every verdict is explained.
-
-`python` · `numpy` · `pillow` · 24 tests
-
-<details><summary>screenshot</summary>
+**`shroud`**
 
 <img src="assets/shroud.png" alt="shroud" width="720"/>
 
-</details>
-
-**[`silhouette`](https://github.com/rephuren/silhouette).** Shows what a domain exposes: subdomains, dangling CNAMEs, headers, email hardening, an A-F grade and a diff between scans. Passive by default; probing needs an explicit authorization flag. Adds `meta` (metadata of your own files), `--shodan` and `--nuclei`.
-
-`python` · `dnspython` · `sqlite` · 100 tests
-
-<details><summary>screenshot</summary>
+**`silhouette`**
 
 <img src="assets/silhouette.png" alt="silhouette" width="720"/>
 
-</details>
-
-**[`wyrm`](https://github.com/rephuren/wyrm).** Mutates input, tracks coverage through a shared-memory map and keeps whatever crashes the target under ASan/UBSan. Own instrumentation, crash minimizer, persistent mode and parallel workers.
-
-`c++` · `clang` · `asan` · `ubsan` · 39 tests
-
-<details><summary>screenshot</summary>
+**`wyrm`**
 
 <img src="assets/wyrm.png" alt="wyrm" width="720"/>
 
