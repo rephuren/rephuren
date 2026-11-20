@@ -13,18 +13,42 @@
 ## ▓ PROJECTS
 
 <table>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a></td><td valign="middle">What it does: <b>A gateway between an AI client and MCP servers.</b><br/>Inside: call policies, taint tracking, a block on the "lethal trifecta", tool-definition pinning.<br/>Checked: a benchmark on a range with a deliberately naive agent: 9 of 9 attacks pass without the gateway, none with it.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a></td><td valign="middle">What it does: <b>Looks in MCP configs and tool descriptions for what a model would read as instructions.</b><br/>Inside: hidden instructions, invisible Unicode, image leaks, shadowing; `pin` and `verify` catch changes after approval.<br/>Checked: 65 tests and runs on training targets.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a></td><td valign="middle">What it does: <b>From an agent session log, shows which foreign text led to a dangerous action.</b><br/>Inside: confidence level and event chain, a hook, HTML and SARIF, an open set of 75 labelled sessions.<br/>Checked: 93 tests; demo on synthetic sessions.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a></td><td valign="middle">What it does: <b>A test stand for LLM applications.</b><br/>Inside: 18 attacks with canaries in the prompt, mapped to the OWASP LLM Top 10 and MITRE ATLAS; targets: endpoint, command, mocks.<br/>Checked: 16 tests; not run against a real model.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a></td><td valign="middle">What it does: <b>A defensive rule engine in Rust.</b><br/>Inside: a Sigma and YARA subset, logs and files, an ATT&CK summary; unsupported rules are rejected with a reason.<br/>Checked: 26 tests on my own rules and invented data, not on SigmaHQ.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/gargoyle"><img src="assets/cards/gargoyle.svg" alt="gargoyle" width="400"/></a></td><td valign="middle">What it does: <b>Rack middleware for Ruby that sits in front of a web app.</b><br/>Inside: 10 rules (scanners, SQL injection, Log4Shell, instruction override aimed at LLMs) mapped to OWASP and ATT&CK; in trap mode it serves decoys <code>/.env</code> and <code>/wp-login.php</code> with fake keys and notices their use.<br/>Checked: 24 tests and a demo on invented traffic; not run on a real site, observe-only by default.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a></td><td valign="middle">What it does: <b>A passive network sensor.</b><br/>Inside: a C core reads pcap (DNS, TLS SNI), a Go analyzer finds beacons, DNS tunnels and scans, SQLite and a dashboard.<br/>Checked: 74 checks, core fuzzed with wyrm with no crashes; not run on live traffic.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a></td><td valign="middle">What it does: <b>Binary dissection.</b><br/>Inside: ELF and PE parsers in Go, hardening, imports, entropy, strings, ImHex patterns, teaching labs.<br/>Checked: 21 tests, cross-checked against `debug/elf` and `debug/pe`; ImHex and labs not run live.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a></td><td valign="middle">What it does: <b>An SSH trap with a fake shell.</b><br/>Inside: passwords, commands and download links from bots, own dashboard; nothing is executed.<br/>Checked: 29 tests and a demo on synthetic data, not on real bots.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a></td><td valign="middle">What it does: <b>A steganography detector for images.</b><br/>Inside: file tails, metadata, LSB, RS analysis, chi-square, JPEG DCT; every verdict is explained.<br/>Checked: 24 tests.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a></td><td valign="middle">What it does: <b>A domain's external attack surface.</b><br/>Inside: subdomains, dangling CNAMEs, headers, email hardening, A–F grade, scan diff, `meta`, Shodan, nuclei.<br/>Checked: 100 tests; Shodan and nuclei on mocks only.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a></td><td valign="middle">What it does: <b>A coverage-guided C++ fuzzer in the AFL spirit.</b><br/>Inside: shared-memory coverage, crash minimizer, persistent mode, workers; applied to the chimera core.<br/>Checked: 50 tests; slower and less clever than AFL++.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a></td><td valign="middle"><pre>&gt; a gateway between an ai client and mcp servers
++ policies, taint tracking, definition pinning
+! benchmark on a naive agent, not battle-tested</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a></td><td valign="middle"><pre>&gt; finds what a model would read as a command in mcp configs
++ hidden instructions, invisible unicode, swaps after approval
+! static analysis, false positives possible</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a></td><td valign="middle"><pre>&gt; from an agent session log: which foreign text led to an action
++ event chain, hook, html and sarif, 75 labelled sessions
+! demo on synthetic sessions</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a></td><td valign="middle"><pre>&gt; a test stand for llm apps
++ 18 attacks, owasp llm top 10, mitre atlas
+! not run against a real model</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a></td><td valign="middle"><pre>&gt; a sigma and yara rule engine in rust
++ logs and files, att&amp;ck summary, rejects with a reason
+! own rules only, not sigmahq</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/gargoyle"><img src="assets/cards/gargoyle.svg" alt="gargoyle" width="400"/></a></td><td valign="middle"><pre>&gt; rack middleware in front of a web app
++ 10 rules, decoys with fake keys, owasp and att&amp;ck
+! not run on a real site, observe-only</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a></td><td valign="middle"><pre>&gt; a passive network sensor: c core, go analyzer
++ pcap, dns, tls sni, beacons, dns tunnels, sqlite
+! not run on live traffic</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a></td><td valign="middle"><pre>&gt; elf and pe dissection in go
++ hardening, imports, entropy, strings, imhex patterns
+! imhex and labs not run live</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a></td><td valign="middle"><pre>&gt; an ssh trap with a fake shell
++ bot passwords, commands and links, dashboard
+! demo on synthetic data, not real bots</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a></td><td valign="middle"><pre>&gt; a steganography detector for images
++ file tails, lsb, rs analysis, chi-square, dct
+! statistical verdict, not proof</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a></td><td valign="middle"><pre>&gt; a domain's external attack surface
++ subdomains, dangling cnames, email, a–f grade, diff
+! shodan and nuclei on mocks only</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a></td><td valign="middle"><pre>&gt; a coverage-guided c++ fuzzer, afl-style
++ coverage, minimizer, persistent mode, workers
+! weaker than afl++; used on the chimera core</pre></td></tr>
 </table>
 
 <details><summary>screenshots</summary>

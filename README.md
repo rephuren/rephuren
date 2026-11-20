@@ -13,18 +13,42 @@
 ## ▓ ПРОЕКТЫ
 
 <table>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a></td><td valign="middle">Что делает: <b>Шлюз между ИИ-клиентом и MCP-серверами.</b><br/>Что внутри: политики на вызовы, отслеживание заражённых данных, запрет «смертельной тройки», защита от подмены инструментов.<br/>Проверено: бенчмарк на полигоне с намеренно наивным агентом: без шлюза проходят 9 атак из 9, с защитой ни одна.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a></td><td valign="middle">Что делает: <b>Ищет в MCP-конфигах и описаниях инструментов то, что модель прочтёт как указание.</b><br/>Что внутри: скрытые инструкции, невидимые символы, утечки через картинки, затенение; `pin` и `verify` ловят подмену после одобрения.<br/>Проверено: 65 тестов и прогоны на учебных целях.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a></td><td valign="middle">Что делает: <b>По журналу сессии агента показывает, какой чужой текст привёл к опасному действию.</b><br/>Что внутри: уровень уверенности и цепочка событий, хук, HTML и SARIF, открытый набор из 75 размеченных сессий.<br/>Проверено: 93 теста; демо на синтетических сессиях.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a></td><td valign="middle">Что делает: <b>Стенд проверки LLM-приложения.</b><br/>Что внутри: 18 атак с «канарейками» в промпте, привязка к OWASP LLM Top 10 и MITRE ATLAS; цели: эндпоинт, команда, имитации.<br/>Проверено: 16 тестов; на настоящей модели не запускался.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a></td><td valign="middle">Что делает: <b>Движок правил для защиты на Rust.</b><br/>Что внутри: подмножество Sigma и YARA, журналы и файлы, сводка по ATT&CK; неподдерживаемое отклоняется с причиной.<br/>Проверено: 26 тестов на своих правилах и придуманных данных, не на SigmaHQ.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/gargoyle"><img src="assets/cards/gargoyle.svg" alt="gargoyle" width="400"/></a></td><td valign="middle">Что делает: <b>Rack-middleware для Ruby, стоящее перед веб-приложением.</b><br/>Что внутри: 10 правил (сканеры, SQL-инъекции, Log4Shell, подмена инструкций для LLM) с привязкой к OWASP и ATT&CK; в режиме ловушки отдаёт приманки <code>/.env</code> и <code>/wp-login.php</code> с ложными ключами и замечает их использование.<br/>Проверено: 24 теста и демо на придуманном трафике; на реальном сайте не запускалось, по умолчанию только наблюдает.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a></td><td valign="middle">Что делает: <b>Пассивный сенсор сети.</b><br/>Что внутри: ядро на C читает pcap (DNS, TLS SNI), анализатор на Go ищет биконы, DNS-туннели и сканирование, SQLite и дашборд.<br/>Проверено: 74 проверки, фаззинг ядра через wyrm без падений; на живом трафике не гонялся.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a></td><td valign="middle">Что делает: <b>Разбор бинарников.</b><br/>Что внутри: парсеры ELF и PE на Go, защиты, импорты, энтропия, строки, шаблоны ImHex, учебные лабораторные.<br/>Проверено: 21 тест, сверка с `debug/elf` и `debug/pe`; ImHex и лабораторные вживую не запускались.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a></td><td valign="middle">Что делает: <b>SSH-ловушка с поддельной оболочкой.</b><br/>Что внутри: пароли, команды и ссылки на загрузки от ботов, собственный дашборд; ничего не исполняется.<br/>Проверено: 29 тестов и демо на синтетических данных, не на реальных ботах.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a></td><td valign="middle">Что делает: <b>Детектор стеганографии в изображениях.</b><br/>Что внутри: хвост файла, метаданные, LSB, RS-анализ, хи-квадрат, DCT у JPEG; каждый вердикт объяснён.<br/>Проверено: 24 теста.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a></td><td valign="middle">Что делает: <b>Внешняя поверхность атаки домена.</b><br/>Что внутри: поддомены, висячие CNAME, заголовки, почтовая защита, оценка A–F, diff между сканами, `meta`, Shodan, nuclei.<br/>Проверено: 100 тестов; Shodan и nuclei только на моках.</td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a></td><td valign="middle">Что делает: <b>Coverage-guided фаззер на C++ в духе AFL.</b><br/>Что внутри: покрытие через shared memory, минимизатор крашей, persistent-режим, воркеры; применён к ядру chimera.<br/>Проверено: 50 тестов; по скорости и уму уступает AFL++.</td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a></td><td valign="middle"><pre>&gt; шлюз между ии-клиентом и mcp-серверами
++ политики, taint tracking, закрепление определений
+! бенчмарк на наивном агенте, не боевая защита</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a></td><td valign="middle"><pre>&gt; ищет в mcp-конфигах то, что модель прочтёт как команду
++ скрытые инструкции, невидимые символы, подмена после одобрения
+! статический анализ, возможны ложные срабатывания</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a></td><td valign="middle"><pre>&gt; по логу сессии агента: какой чужой текст привёл к действию
++ цепочка событий, хук, html и sarif, 75 размеченных сессий
+! демо на синтетических сессиях</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a></td><td valign="middle"><pre>&gt; стенд проверки llm-приложения
++ 18 атак, owasp llm top 10, mitre atlas
+! на настоящей модели не запускался</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a></td><td valign="middle"><pre>&gt; движок правил sigma и yara на rust
++ журналы и файлы, сводка по att&amp;ck, отказ с причиной
+! на своих правилах, не на sigmahq</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/gargoyle"><img src="assets/cards/gargoyle.svg" alt="gargoyle" width="400"/></a></td><td valign="middle"><pre>&gt; rack-middleware перед веб-приложением
++ 10 правил, приманки с ложными ключами, owasp и att&amp;ck
+! на реальном сайте не запускалось, только наблюдает</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a></td><td valign="middle"><pre>&gt; пассивный сенсор сети: ядро на c, анализ на go
++ pcap, dns, tls sni, биконы, dns-туннели, sqlite
+! на живом трафике не гонялся</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a></td><td valign="middle"><pre>&gt; разбор elf и pe на go
++ защиты, импорты, энтропия, строки, шаблоны imhex
+! imhex и лаборатории вживую не запускались</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a></td><td valign="middle"><pre>&gt; ssh-ловушка с поддельной оболочкой
++ пароли, команды и ссылки ботов, дашборд
+! демо на синтетике, не на реальных ботах</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a></td><td valign="middle"><pre>&gt; детектор стеганографии в изображениях
++ хвост файла, lsb, rs-анализ, хи-квадрат, dct
+! вердикт статистический, не доказательство</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a></td><td valign="middle"><pre>&gt; внешняя поверхность атаки домена
++ поддомены, висячие cname, почта, оценка a–f, diff
+! shodan и nuclei только на моках</pre></td></tr>
+<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a></td><td valign="middle"><pre>&gt; фаззер на c++ в духе afl
++ покрытие, минимизатор, persistent-режим, воркеры
+! уступает afl++; применён к ядру chimera</pre></td></tr>
 </table>
 
 <details><summary>скриншоты</summary>
