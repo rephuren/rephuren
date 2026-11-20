@@ -133,6 +133,8 @@
     "parrot os",
     "tails",
     "linux",
+    "windows",
+    "macos",
     "wsl",
     "docker",
     "virtualbox",

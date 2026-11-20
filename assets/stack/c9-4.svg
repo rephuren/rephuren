@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107 30" width="107" height="30" role="img" aria-label="windows">
+  <title>windows</title>
+  <defs><style>text { font-family: 'Courier New', Menlo, Consolas, monospace; }</style></defs>
+  <rect x="0.5" y="0.5" width="106" height="29" rx="2" fill="#0b0b0b" stroke="#2a2a2a"/>
+  <rect x="0" y="0" width="3" height="30" fill="#b3000f"/>
+  <g transform="translate(14.0,7) scale(0.6667)"><path d="M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623" fill="#e8e8e8"/></g>
+  <text x="38" y="19.5" font-size="13" fill="#e8e8e8">windows</text>
+</svg>

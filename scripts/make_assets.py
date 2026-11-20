@@ -1,5 +1,6 @@
 """Генерирует оформление профиля: карточки проектов, разделители и подвал (SVG), рамки для скриншотов.
 Запуск: python3 scripts/make_assets.py. Зависимость только у рамок: Pillow."""
+import re
 import textwrap
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -112,37 +113,71 @@ def shots_button(label: str) -> str:
 """
 
 
-def stack_svg(cats: list) -> str:
-    """Стек одной картинкой в стиле карточек вместо полутора десятков бейджей shields.io: свои названия, без внешних запросов."""
-    y = 40
-    blocks = []
-    for title, names in cats:
-        lines, cur = [], ""
-        for n in names:
-            nxt = f"{cur}  ·  {n}" if cur else n
-            if len(nxt) > 96 and cur:
-                lines.append(cur)
-                cur = n
-            else:
-                cur = nxt
-        lines.append(cur)
-        blocks.append(f'<text x="24" y="{y}" font-size="11" fill="{RED}" letter-spacing="3">{escape(title.upper())}</text>')
-        for ln in lines:
-            y += 20
-            body = escape(ln).replace("  ·  ", f'<tspan fill="{DIM}">  ·  </tspan>')
-            blocks.append(f'<text x="24" y="{y}" font-size="13" fill="{TEXT}" xml:space="preserve">{body}</text>')
-        y += 30
-    h = y - 4
-    alt = "; ".join(f"{t}: {', '.join(n)}" for t, n in cats)
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 {h}" width="830" height="{h}" role="img" aria-label="{escape(alt)}">
-  <title>stack</title>
-  <defs><pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#fff" opacity="0.04"/></pattern>{STYLE}</defs>
-  <rect x="0.5" y="0.5" width="829" height="{h - 1}" rx="2" fill="{PANEL}" stroke="{LINE}"/>
-  <rect x="0" y="0" width="4" height="{h}" fill="{RED}"/>
-  {"".join(blocks)}
-  <rect width="830" height="{h}" fill="url(#scan)"/>
+ICON_SLUGS = {
+    "python": "python", "c": "c", "c++": "cplusplus", "go": "go", "rust": "rust", "bash": "gnubash", "powershell": "powershell",
+    "typescript": "typescript", "node.js": "nodedotjs", "javascript": "javascript", "sql": "sqlite", "wireshark": "wireshark",
+    "burp suite": "portswigger", "owasp zap": "owasp", "google dorks": "google", "tor": "torproject", "wireguard": "wireguard",
+    "owasp llm top 10": "owasp", "metasploit": "metasploit", "hashcat": "hashcat", "kali linux": "kalilinux", "parrot os": "parrotsecurity",
+    "tails": "tails", "linux": "linux", "docker": "docker", "virtualbox": "virtualbox", "git": "git", "vs code": "visualstudiocode", "windows": "windows", "macos": "macos",
+}
+
+
+def _icon(icons: dict, name: str, x: float, y: float) -> str:
+    slug = ICON_SLUGS.get(name)
+    if slug and slug in icons:
+        return f'<g transform="translate({x:.1f},{y}) scale(0.6667)"><path d="{icons[slug]}" fill="{TEXT}"/></g>'
+    mono = "".join(ch for ch in name if ch.isalnum())[:2].lower() or "?"
+    return (
+        f'<rect x="{x + 0.5:.1f}" y="{y + 0.5}" width="15" height="15" rx="3" fill="none" stroke="{RED}" stroke-width="1"/>'
+        f'<text x="{x + 8:.1f}" y="{y + 11}" font-size="8" font-weight="700" fill="{RED}" text-anchor="middle">{escape(mono)}</text>'
+    )
+
+
+def chip(name: str, icons: dict) -> str:
+    """Один инструмент одной плашкой: значок simple-icons (CC0) или монограмма в красной рамке. Ссылку ставит README."""
+    w = round(14 + 16 + 8 + len(name) * 7.8 + 14)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 30" width="{w}" height="30" role="img" aria-label="{escape(name)}">
+  <title>{escape(name)}</title>
+  <defs><style>text {{ font-family: 'Courier New', Menlo, Consolas, monospace; }}</style></defs>
+  <rect x="0.5" y="0.5" width="{w - 1}" height="29" rx="2" fill="{PANEL}" stroke="{LINE}"/>
+  <rect x="0" y="0" width="3" height="30" fill="{RED}"/>
+  {_icon(icons, name, 14, 7)}
+  <text x="38" y="19.5" font-size="13" fill="{TEXT}">{escape(name)}</text>
 </svg>
 """
+
+
+def category_label(title: str) -> str:
+    w = round(len(title) * 10 + 8)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 22" width="{w}" height="22" role="img" aria-label="{escape(title)}">
+  <title>{escape(title)}</title>
+  <defs><style>text {{ font-family: 'Courier New', Menlo, Consolas, monospace; }}</style></defs>
+  <text x="2" y="15" font-size="12" fill="{RED}" letter-spacing="3">{escape(title.upper())}</text>
+</svg>
+"""
+
+
+def write_stack(cats: list, links: dict) -> str:
+    """Пишет плашки в assets/stack/ и возвращает разметку для README (каждая плашка это ссылка)."""
+    import json as _json
+    import shutil
+
+    icons = _json.loads((ROOT / "scripts" / "icons.json").read_text(encoding="utf-8"))
+    out_dir = ASSETS / "stack"
+    shutil.rmtree(out_dir, ignore_errors=True)
+    out_dir.mkdir()
+    parts = []
+    for ci, (title, names) in enumerate(cats):
+        (out_dir / f"h{ci}.svg").write_text(category_label(title), encoding="utf-8")
+        row = [f'<img src="assets/stack/h{ci}.svg" alt="{escape(title)}" height="22"/><br/>']
+        for ni, n in enumerate(names):
+            fn = f"c{ci}-{ni}.svg"
+            (out_dir / fn).write_text(chip(n, icons), encoding="utf-8")
+            url = links.get(n)
+            img = f'<img src="assets/stack/{fn}" alt="{escape(n)}" height="30"/>'
+            row.append(f'<a href="{url}">{img}</a>' if url else img)
+        parts.append("<p>\n" + "\n".join(row) + "\n</p>")
+    return "\n\n".join(parts)
 
 
 def lang_button(code: str, active: bool) -> str:
@@ -296,7 +331,11 @@ def main() -> None:
         (ASSETS / f"shots-{lg}.svg").write_text(shots_button(lab), encoding="utf-8")
     import json as _json
     stack = _json.loads((ROOT / "scripts" / "stack.json").read_text(encoding="utf-8"))
-    (ASSETS / "stack-ru.svg").write_text(stack_svg(stack["ru"]), encoding="utf-8")
+    links = _json.loads((ROOT / "scripts" / "stack_links.json").read_text(encoding="utf-8"))
+    markup = write_stack(stack["ru"], links)
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    readme = re.sub(r"(<!-- stack:start -->\n).*?(<!-- stack:end -->)", lambda m: m.group(1) + markup + "\n" + m.group(2), readme, flags=re.S)
+    (ROOT / "README.md").write_text(readme, encoding="utf-8")
     (ASSETS / "stats.svg").write_text(stats_svg(), encoding="utf-8")
     try:
         frame_images()

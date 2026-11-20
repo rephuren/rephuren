@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 30" width="130" height="30" role="img" aria-label="volatility">
+  <title>volatility</title>
+  <defs><style>text { font-family: 'Courier New', Menlo, Consolas, monospace; }</style></defs>
+  <rect x="0.5" y="0.5" width="129" height="29" rx="2" fill="#0b0b0b" stroke="#2a2a2a"/>
+  <rect x="0" y="0" width="3" height="30" fill="#b3000f"/>
+  <rect x="14.5" y="7.5" width="15" height="15" rx="3" fill="none" stroke="#b3000f" stroke-width="1"/><text x="22.0" y="18" font-size="8" font-weight="700" fill="#b3000f" text-anchor="middle">vo</text>
+  <text x="38" y="19.5" font-size="13" fill="#e8e8e8">volatility</text>
+</svg>
