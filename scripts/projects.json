@@ -1,0 +1,53 @@
+{
+ "order": [
+  "citadel",
+  "basilisk",
+  "ectoplasm",
+  "exorcist",
+  "gargoyle",
+  "banshee",
+  "chimera",
+  "necropsy",
+  "ghoul",
+  "shroud",
+  "silhouette",
+  "wyrm"
+ ],
+ "shots": [
+  "citadel",
+  "basilisk",
+  "ectoplasm",
+  "ghoul",
+  "shroud",
+  "silhouette",
+  "wyrm"
+ ],
+ "ru": {
+  "citadel": "Шлюз между ИИ-клиентом и MCP-серверами: политики на вызовы, отслеживание заражённых данных, закрепление определений. На полигоне без шлюза проходят 9 атак из 9, с защитой ни одной; полигон намеренно простой.",
+  "basilisk": "Ищет в MCP-конфигах и описаниях инструментов то, что модель прочтёт как команду, и ловит подмену определений после одобрения. Статический анализ, возможны ложные срабатывания.",
+  "ectoplasm": "По журналу сессии агента показывает, какой чужой текст привёл к опасному действию, с уровнем уверенности и цепочкой событий. Демо на синтетических сессиях.",
+  "exorcist": "Стенд проверки LLM-приложения: 18 атак с «канарейками» в промпте, привязка к OWASP LLM Top 10 и MITRE ATLAS. На настоящей модели не запускался.",
+  "gargoyle": "Rack-middleware для Ruby: замечает сканеры и инъекции, отдаёт приманки с ложными ключами и ловит их использование. На реальном сайте не запускался, по умолчанию только наблюдает.",
+  "banshee": "Движок правил на Rust: подмножество Sigma и YARA, журналы и файлы, сводка по ATT&CK. Что не понимает, отклоняет с причиной. Проверен на своих правилах, не на SigmaHQ.",
+  "chimera": "Пассивный сенсор сети: ядро на C читает pcap, анализатор на Go ищет биконы, DNS-туннели и сканирование. Ядро прогнано через wyrm без падений, на живом трафике не гонялся.",
+  "necropsy": "Разбор ELF и PE на Go: защиты, импорты, энтропия, строки, шаблоны ImHex. ImHex и учебные лабораторные вживую не запускались.",
+  "ghoul": "SSH-ловушка с поддельной оболочкой: записывает пароли, команды и ссылки на загрузки от ботов, ничего не исполняет. Демо на синтетических данных, не на реальных ботах.",
+  "shroud": "Ищет скрытые данные в изображениях: хвост файла, метаданные, LSB, RS-анализ, хи-квадрат. Каждый вердикт объяснён, но он статистический и не служит доказательством.",
+  "silhouette": "Показывает внешнюю поверхность атаки домена: поддомены, висячие CNAME, почтовую защиту, оценку A-F и разницу между сканами. Shodan и nuclei проверены только на моках.",
+  "wyrm": "Фаззер на C++ в духе AFL: покрытие, минимизатор крашей, persistent-режим, воркеры. Применён к ядру chimera; по скорости и уму уступает AFL++."
+ },
+ "en": {
+  "citadel": "A gateway between an AI client and MCP servers: call policies, taint tracking, definition pinning. On the range, 9 of 9 attacks pass without the gateway and none with it; the range is deliberately simple.",
+  "basilisk": "Finds what a model would read as a command in MCP configs and tool descriptions, and catches definitions swapped after approval. Static analysis, false positives are possible.",
+  "ectoplasm": "From an agent session log, shows which foreign text led to a dangerous action, with a confidence level and the event chain. Demo on synthetic sessions.",
+  "exorcist": "A test stand for LLM apps: 18 attacks with canaries in the prompt, mapped to the OWASP LLM Top 10 and MITRE ATLAS. Not run against a real model.",
+  "gargoyle": "Rack middleware for Ruby: notices scanners and injections, serves decoys with fake keys and catches their use. Not run on a real site, observe-only by default.",
+  "banshee": "A rule engine in Rust: a Sigma and YARA subset, logs and files, an ATT&CK summary. Whatever it does not understand is rejected with a reason. Tested on my own rules, not on SigmaHQ.",
+  "chimera": "A passive network sensor: a C core reads pcap, a Go analyzer finds beacons, DNS tunnels and scans. The core was fuzzed with wyrm without crashes; not run on live traffic.",
+  "necropsy": "ELF and PE dissection in Go: hardening, imports, entropy, strings, ImHex patterns. ImHex and the teaching labs were not run live.",
+  "ghoul": "An SSH trap with a fake shell: records passwords, commands and download links from bots, executes nothing. Demo on synthetic data, not on real bots.",
+  "shroud": "Looks for hidden data in images: file tails, metadata, LSB, RS analysis, chi-square. Every verdict is explained, but it is statistical and not proof.",
+  "silhouette": "Shows a domain's external attack surface: subdomains, dangling CNAMEs, email hardening, an A-F grade and the diff between scans. Shodan and nuclei are checked on mocks only.",
+  "wyrm": "A C++ fuzzer in the AFL spirit: coverage, crash minimizer, persistent mode, workers. Applied to the chimera core; slower and less clever than AFL++."
+ }
+}

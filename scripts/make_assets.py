@@ -180,6 +180,21 @@ def write_stack(cats: list, links: dict) -> str:
     return "\n\n".join(parts)
 
 
+def projects_markup(lang: str) -> str:
+    """Блок проектов: карточка, под ней короткий текст, у части проектов скриншот. Тексты лежат в scripts/projects.json."""
+    import json as _json
+
+    data = _json.loads((ROOT / "scripts" / "projects.json").read_text(encoding="utf-8"))
+    out = []
+    for n in data["order"]:
+        text = "<br/>\n".join(textwrap.wrap(data[lang][n], 66))
+        block = f'<p align="center">\n<a href="https://github.com/rephuren/{n}"><img src="assets/cards/{n}.svg" alt="{n}" width="400"/></a><br/>\n{text}\n</p>'
+        if n in data["shots"]:
+            block += f'\n\n<p align="center"><img src="assets/{n}.png" alt="{n}" width="640"/></p>'
+        out.append(block)
+    return "\n\n".join(out)
+
+
 def lang_button(code: str, active: bool) -> str:
     """Маленькая кнопка переключения языка в стиле карточек: активная с красной полоской, неактивная приглушённая."""
     bar = RED if active else LINE
@@ -327,8 +342,6 @@ def main() -> None:
         (ASSETS / f"whoami-{lg}.svg").write_text(whoami(lg), encoding="utf-8")
     for lg, (lab, txt) in {'ru': ('Состояние проектов', 'Скриншоты ghoul, shroud, silhouette и ectoplasm сняты в демо-режиме на синтетических данных. Вывод wyrm и basilisk взят из прогонов на учебных целях. exorcist, banshee, chimera и gargoyle проверены только на своих учебных правилах, имитациях и синтетических данных. Таблица citadel посчитана на полигоне с намеренно наивным агентом. Методология и ограничения каждого проекта описаны в его README.'), 'en': ('Project status', "Screenshots of ghoul, shroud, silhouette and ectoplasm come from demo mode on synthetic data. wyrm and basilisk output comes from runs on training targets. exorcist, banshee, chimera and gargoyle were checked only on their own teaching rules, mocks and synthetic data. The citadel table was computed on a range with a deliberately naive agent. Methodology and limitations are described in each project's README.")}.items():
         (ASSETS / f"note-{lg}.svg").write_text(note(txt, lab), encoding="utf-8")
-    for lg, lab in (("ru", "скриншоты"), ("en", "screenshots")):
-        (ASSETS / f"shots-{lg}.svg").write_text(shots_button(lab), encoding="utf-8")
     import json as _json
     stack = _json.loads((ROOT / "scripts" / "stack.json").read_text(encoding="utf-8"))
     links = _json.loads((ROOT / "scripts" / "stack_links.json").read_text(encoding="utf-8"))
@@ -336,6 +349,11 @@ def main() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     readme = re.sub(r"(<!-- stack:start -->\n).*?(<!-- stack:end -->)", lambda m: m.group(1) + markup + "\n" + m.group(2), readme, flags=re.S)
     (ROOT / "README.md").write_text(readme, encoding="utf-8")
+    for fname, lg in (("README.md", "ru"), ("README.en.md", "en")):
+        path = ROOT / fname
+        txt = path.read_text(encoding="utf-8")
+        txt = re.sub(r"(<!-- projects:start -->\n).*?(<!-- projects:end -->)", lambda m: m.group(1) + projects_markup(lg) + "\n" + m.group(2), txt, flags=re.S)
+        path.write_text(txt, encoding="utf-8")
     (ASSETS / "stats.svg").write_text(stats_svg(), encoding="utf-8")
     try:
         frame_images()
