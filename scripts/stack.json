@@ -1,0 +1,144 @@
+{
+ "ru": [
+  [
+   "ЯЗЫКИ",
+   [
+    "python",
+    "c",
+    "c++",
+    "go",
+    "rust",
+    "bash",
+    "powershell",
+    "typescript",
+    "node.js",
+    "javascript",
+    "sql",
+    "assembly x86",
+    "imhex pattern lang"
+   ]
+  ],
+  [
+   "РАЗВЕДКА И СЕТЬ",
+   [
+    "nmap",
+    "masscan",
+    "wireshark",
+    "tcpdump",
+    "netcat",
+    "mtr",
+    "dig"
+   ]
+  ],
+  [
+   "ВЕБ",
+   [
+    "burp suite",
+    "whatweb",
+    "nuclei",
+    "sqlmap",
+    "ffuf",
+    "gobuster",
+    "owasp zap"
+   ]
+  ],
+  [
+   "OSINT",
+   [
+    "spiderfoot",
+    "maltego",
+    "shodan",
+    "censys",
+    "recon-ng",
+    "theharvester",
+    "amass",
+    "exiftool",
+    "pic2map",
+    "sherlock",
+    "google dorks",
+    "osint-catalog"
+   ]
+  ],
+  [
+   "ЦЕНЗУРА И ПРИВАТНОСТЬ СЕТИ",
+   [
+    "dpi-detector",
+    "tor",
+    "proxychains",
+    "wireguard",
+    "dns · tls · tcp-анализ"
+   ]
+  ],
+  [
+   "AI / LLM SECURITY",
+   [
+    "garak",
+    "pyrit",
+    "promptfoo",
+    "owasp llm top 10",
+    "mitre atlas",
+    "mcp security"
+   ]
+  ],
+  [
+   "ДЕТЕКТ И BLUE TEAM",
+   [
+    "sigma",
+    "yara",
+    "suricata",
+    "zeek",
+    "mitre att&ck",
+    "atomic red team",
+    "honeypots"
+   ]
+  ],
+  [
+   "ЭКСПЛУАТАЦИЯ",
+   [
+    "metasploit",
+    "pwntools",
+    "impacket",
+    "netexec",
+    "linpeas",
+    "chisel",
+    "revshells",
+    "gtfobins",
+    "usb army knife",
+    "hashcat",
+    "john the ripper",
+    "hydra"
+   ]
+  ],
+  [
+   "РЕВЕРС, ФОРЕНЗИКА, СТЕГО",
+   [
+    "ghidra",
+    "imhex",
+    "gdb",
+    "radare2",
+    "cutter",
+    "binwalk",
+    "volatility",
+    "autopsy",
+    "foremost",
+    "stegdetect",
+    "zsteg",
+    "steghide"
+   ]
+  ],
+  [
+   "СРЕДА",
+   [
+    "kali linux",
+    "parrot os",
+    "tails",
+    "linux",
+    "wsl",
+    "docker",
+    "virtualbox",
+    "git",
+    "vs code"
+   ]
+  ]
+ ]
+}

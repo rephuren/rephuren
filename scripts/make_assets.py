@@ -112,6 +112,39 @@ def shots_button(label: str) -> str:
 """
 
 
+def stack_svg(cats: list) -> str:
+    """Стек одной картинкой в стиле карточек вместо полутора десятков бейджей shields.io: свои названия, без внешних запросов."""
+    y = 40
+    blocks = []
+    for title, names in cats:
+        lines, cur = [], ""
+        for n in names:
+            nxt = f"{cur}  ·  {n}" if cur else n
+            if len(nxt) > 96 and cur:
+                lines.append(cur)
+                cur = n
+            else:
+                cur = nxt
+        lines.append(cur)
+        blocks.append(f'<text x="24" y="{y}" font-size="11" fill="{RED}" letter-spacing="3">{escape(title.upper())}</text>')
+        for ln in lines:
+            y += 20
+            body = escape(ln).replace("  ·  ", f'<tspan fill="{DIM}">  ·  </tspan>')
+            blocks.append(f'<text x="24" y="{y}" font-size="13" fill="{TEXT}" xml:space="preserve">{body}</text>')
+        y += 30
+    h = y - 4
+    alt = "; ".join(f"{t}: {', '.join(n)}" for t, n in cats)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 {h}" width="830" height="{h}" role="img" aria-label="{escape(alt)}">
+  <title>stack</title>
+  <defs><pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#fff" opacity="0.04"/></pattern>{STYLE}</defs>
+  <rect x="0.5" y="0.5" width="829" height="{h - 1}" rx="2" fill="{PANEL}" stroke="{LINE}"/>
+  <rect x="0" y="0" width="4" height="{h}" fill="{RED}"/>
+  {"".join(blocks)}
+  <rect width="830" height="{h}" fill="url(#scan)"/>
+</svg>
+"""
+
+
 def lang_button(code: str, active: bool) -> str:
     """Маленькая кнопка переключения языка в стиле карточек: активная с красной полоской, неактивная приглушённая."""
     bar = RED if active else LINE
@@ -261,6 +294,9 @@ def main() -> None:
         (ASSETS / f"note-{lg}.svg").write_text(note(txt, lab), encoding="utf-8")
     for lg, lab in (("ru", "скриншоты"), ("en", "screenshots")):
         (ASSETS / f"shots-{lg}.svg").write_text(shots_button(lab), encoding="utf-8")
+    import json as _json
+    stack = _json.loads((ROOT / "scripts" / "stack.json").read_text(encoding="utf-8"))
+    (ASSETS / "stack-ru.svg").write_text(stack_svg(stack["ru"]), encoding="utf-8")
     (ASSETS / "stats.svg").write_text(stats_svg(), encoding="utf-8")
     try:
         frame_images()
