@@ -195,7 +195,6 @@
 <a href="https://www.docker.com"><img src="assets/stack/c9-7.svg" alt="docker" height="30"/></a>
 <a href="https://www.virtualbox.org"><img src="assets/stack/c9-8.svg" alt="virtualbox" height="30"/></a>
 <a href="https://git-scm.com"><img src="assets/stack/c9-9.svg" alt="git" height="30"/></a>
-<a href="https://code.visualstudio.com"><img src="assets/stack/c9-10.svg" alt="vs code" height="30"/></a>
 </p>
 <!-- stack:end -->
 
