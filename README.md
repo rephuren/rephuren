@@ -12,44 +12,20 @@
 
 ## ▓ ПРОЕКТЫ
 
-<table>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a></td><td valign="middle"><pre>&gt; шлюз между ии-клиентом и mcp-серверами
-+ политики, taint tracking, закрепление определений
-! бенчмарк на наивном агенте, не боевая защита</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a></td><td valign="middle"><pre>&gt; ищет в mcp-конфигах то, что модель прочтёт как команду
-+ скрытые инструкции, невидимые символы, подмена после одобрения
-! статический анализ, возможны ложные срабатывания</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a></td><td valign="middle"><pre>&gt; по логу сессии агента: какой чужой текст привёл к действию
-+ цепочка событий, хук, html и sarif, 75 размеченных сессий
-! демо на синтетических сессиях</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a></td><td valign="middle"><pre>&gt; стенд проверки llm-приложения
-+ 18 атак, owasp llm top 10, mitre atlas
-! на настоящей модели не запускался</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a></td><td valign="middle"><pre>&gt; движок правил sigma и yara на rust
-+ журналы и файлы, сводка по att&amp;ck, отказ с причиной
-! на своих правилах, не на sigmahq</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/gargoyle"><img src="assets/cards/gargoyle.svg" alt="gargoyle" width="400"/></a></td><td valign="middle"><pre>&gt; rack-middleware перед веб-приложением
-+ 10 правил, приманки с ложными ключами, owasp и att&amp;ck
-! на реальном сайте не запускалось, только наблюдает</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a></td><td valign="middle"><pre>&gt; пассивный сенсор сети: ядро на c, анализ на go
-+ pcap, dns, tls sni, биконы, dns-туннели, sqlite
-! на живом трафике не гонялся</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a></td><td valign="middle"><pre>&gt; разбор elf и pe на go
-+ защиты, импорты, энтропия, строки, шаблоны imhex
-! imhex и лаборатории вживую не запускались</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a></td><td valign="middle"><pre>&gt; ssh-ловушка с поддельной оболочкой
-+ пароли, команды и ссылки ботов, дашборд
-! демо на синтетике, не на реальных ботах</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a></td><td valign="middle"><pre>&gt; детектор стеганографии в изображениях
-+ хвост файла, lsb, rs-анализ, хи-квадрат, dct
-! вердикт статистический, не доказательство</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a></td><td valign="middle"><pre>&gt; внешняя поверхность атаки домена
-+ поддомены, висячие cname, почта, оценка a–f, diff
-! shodan и nuclei только на моках</pre></td></tr>
-<tr><td width="410" valign="middle"><a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a></td><td valign="middle"><pre>&gt; фаззер на c++ в духе afl
-+ покрытие, минимизатор, persistent-режим, воркеры
-! уступает afl++; применён к ядру chimera</pre></td></tr>
-</table>
+<p align="center">
+<a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
+<a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
+<a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
+<a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a>
+<a href="https://github.com/rephuren/gargoyle"><img src="assets/cards/gargoyle.svg" alt="gargoyle" width="400"/></a>
+<a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a>
+<a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a>
+<a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a>
+<a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a>
+<a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a>
+<a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a>
+<a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a>
+</p>
 
 <details><summary>скриншоты</summary>
 
