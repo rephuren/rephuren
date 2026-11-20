@@ -25,6 +25,7 @@ stack : python · typescript · c · c++
 <a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
 <a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
 <a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
+<a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a>
 <a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a>
 <a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a>
 <a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a>
@@ -60,6 +61,10 @@ stack : python · typescript · c · c++
 <img src="assets/ectoplasm.png" alt="ectoplasm" width="560"/>
 
 </details>
+
+**[`necropsy`](https://github.com/rephuren/necropsy).** Binary dissection: own dependency-free ELF and PE parsers in Go (checksec-style hardening, imports, per-section entropy), classified ASCII/UTF-16 strings, and ImHex patterns for the headers. Parsers are cross-checked against `debug/elf` and `debug/pe` on real binaries; the ImHex patterns have not been run inside ImHex.
+
+`go` · `imhex` · zero dependencies · 21 tests
 
 **[`ghoul`](https://github.com/rephuren/ghoul).** Pretends to be a compromised server and records which passwords bots try, which commands they run and where they download malware from. The shell is fake; nothing is executed.
 

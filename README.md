@@ -25,6 +25,7 @@ $ cat ~/focus
 <a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
 <a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
 <a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
+<a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a>
 <a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a>
 <a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a>
 <a href="https://github.com/rephuren/silhouette"><img src="assets/cards/silhouette.svg" alt="silhouette" width="400"/></a>
@@ -60,6 +61,10 @@ $ cat ~/focus
 <img src="assets/ectoplasm.png" alt="отчёт ectoplasm" width="560"/>
 
 </details>
+
+**[`necropsy`](https://github.com/rephuren/necropsy).** Вскрытие бинарников: свой разборщик ELF и PE на Go без зависимостей (защита в духе checksec, импорты, секции с энтропией), строки ASCII и UTF-16 с классификацией и паттерны ImHex для заголовков. Разборщики сверены с `debug/elf` и `debug/pe` на реальных бинарниках; паттерны ImHex в самом ImHex не запускались.
+
+`go` · `imhex` · 0 зависимостей · 21 тест
 
 **[`ghoul`](https://github.com/rephuren/ghoul).** Притворяется взломанным сервером и записывает, какие пароли перебирают боты, какие команды запускают и откуда качают вредоносы. Оболочка поддельная, ничего не исполняется.
 
