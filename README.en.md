@@ -62,7 +62,7 @@ stack : python · typescript · c · c++
 
 </details>
 
-**[`necropsy`](https://github.com/rephuren/necropsy).** Binary dissection: own dependency-free ELF and PE parsers in Go (checksec-style hardening, imports, per-section entropy), classified ASCII/UTF-16 strings, and ImHex patterns for the headers. Parsers are cross-checked against `debug/elf` and `debug/pe` on real binaries; the ImHex patterns have not been run inside ImHex.
+**[`necropsy`](https://github.com/rephuren/necropsy).** Binary dissection: own dependency-free ELF and PE parsers in Go (checksec-style hardening, imports, per-section entropy), classified ASCII/UTF-16 strings, ImHex patterns for the headers, plus two local x86-64 exploitation labs with pwntools walkthroughs (`ret2win`, `fmt-leak`). Parsers are cross-checked against `debug/elf` and `debug/pe` on real binaries; the ImHex patterns have not been run inside ImHex, and the labs are C-built teaching targets rather than hand-written assembly.
 
 `go` · `imhex` · zero dependencies · 21 tests
 
