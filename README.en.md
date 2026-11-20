@@ -25,7 +25,7 @@ stack : python · typescript · c · c++
 <a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
 <a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
 <a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
-<a href="https://github.com/rephuren/wraith"><img src="assets/cards/wraith.svg" alt="wraith" width="400"/></a>
+<a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a>
 <a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a>
 <a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a>
 <a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a>
@@ -65,7 +65,7 @@ stack : python · typescript · c · c++
 
 </details>
 
-**[`wraith`](https://github.com/rephuren/wraith).** A test stand for LLM applications: plants harmless canaries in the system prompt and uses 18 attack variants (instruction override, indirect injection via a document, prompt leakage, exfiltration through an image URL, tool calls driven by foreign text) to see what the app gave away or executed. Probes map to the OWASP LLM Top 10 and MITRE ATLAS; targets are an OpenAI-compatible endpoint, a command, or two teaching mocks. Not run against a real model.
+**[`exorcist`](https://github.com/rephuren/exorcist).** A test stand for LLM applications: plants harmless canaries in the system prompt and uses 18 attack variants (instruction override, indirect injection via a document, prompt leakage, exfiltration through an image URL, tool calls driven by foreign text) to see what the app gave away or executed. Probes map to the OWASP LLM Top 10 and MITRE ATLAS; targets are an OpenAI-compatible endpoint, a command, or two teaching mocks. Not run against a real model.
 
 `python` · `owasp llm` · `mitre atlas` · zero dependencies · 16 tests
 
@@ -121,7 +121,7 @@ stack : python · typescript · c · c++
 
 </details>
 
-> **Project status.** Screenshots of `ghoul`, `shroud`, `silhouette` and `ectoplasm` come from demo mode on synthetic data. `wyrm` and `basilisk` output comes from runs on training targets. `wraith`, `banshee` and `chimera` were checked only on their own teaching rules, mocks and synthetic data. The `citadel` table was computed on a range with a deliberately naive agent. Methodology and limitations are described in each project's README.
+> **Project status.** Screenshots of `ghoul`, `shroud`, `silhouette` and `ectoplasm` come from demo mode on synthetic data. `wyrm` and `basilisk` output comes from runs on training targets. `exorcist`, `banshee` and `chimera` were checked only on their own teaching rules, mocks and synthetic data. The `citadel` table was computed on a range with a deliberately naive agent. Methodology and limitations are described in each project's README.
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 

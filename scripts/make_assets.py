@@ -11,7 +11,7 @@ PROJECTS = [
     ("citadel", "шлюз безопасности MCP-агентов", "политики, taint tracking, бенчмарк атак", "typescript · mcp", "50 тестов"),
     ("basilisk", "аудит MCP и инструментов LLM", "инъекции, скрытые символы, подмена", "typescript · sarif", "65 тестов"),
     ("ectoplasm", "разбор сессий ИИ-агентов", "какой текст привёл к какому действию", "python · sarif", "93 теста"),
-    ("wraith", "стенд проверки LLM-приложений", "инъекции, утечки, OWASP LLM и ATLAS", "python · owasp llm · atlas", "16 тестов"),
+    ("exorcist", "стенд проверки LLM-приложений", "инъекции, утечки, OWASP LLM и ATLAS", "python · owasp llm · atlas", "16 тестов"),
     ("banshee", "движок правил Sigma и YARA", "журналы и файлы, сводка по ATT&CK", "rust · sigma · yara", "26 тестов"),
     ("chimera", "пассивный сенсор сети и хоста", "pcap, DNS, TLS, биконинг, SQL", "c · go · sql", "74 проверки"),
     ("necropsy", "вскрытие бинарников ELF и PE", "защита, импорты, энтропия, строки", "go · imhex · pwntools", "21 тест"),

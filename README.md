@@ -25,7 +25,7 @@ $ cat ~/focus
 <a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
 <a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
 <a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
-<a href="https://github.com/rephuren/wraith"><img src="assets/cards/wraith.svg" alt="wraith" width="400"/></a>
+<a href="https://github.com/rephuren/exorcist"><img src="assets/cards/exorcist.svg" alt="exorcist" width="400"/></a>
 <a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a>
 <a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a>
 <a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a>
@@ -65,7 +65,7 @@ $ cat ~/focus
 
 </details>
 
-**[`wraith`](https://github.com/rephuren/wraith).** Стенд проверки LLM-приложения: кладёт в системный промпт безвредные «канарейки» и 18 вариантами атак (подмена инструкций, инъекция через документ, утечка промпта, вынос данных картинкой, вызов инструмента по чужой команде) смотрит, что приложение выдало или исполнило. Пробы привязаны к OWASP LLM Top 10 и MITRE ATLAS; цели: OpenAI-совместимый эндпоинт, команда, две учебные имитации. На настоящей модели не запускался.
+**[`exorcist`](https://github.com/rephuren/exorcist).** Стенд проверки LLM-приложения: кладёт в системный промпт безвредные «канарейки» и 18 вариантами атак (подмена инструкций, инъекция через документ, утечка промпта, вынос данных картинкой, вызов инструмента по чужой команде) смотрит, что приложение выдало или исполнило. Пробы привязаны к OWASP LLM Top 10 и MITRE ATLAS; цели: OpenAI-совместимый эндпоинт, команда, две учебные имитации. На настоящей модели не запускался.
 
 `python` · `owasp llm` · `mitre atlas` · 0 зависимостей · 16 тестов
 
@@ -121,7 +121,7 @@ $ cat ~/focus
 
 </details>
 
-> **Состояние проектов.** Скриншоты `ghoul`, `shroud`, `silhouette` и `ectoplasm` сняты в демо-режиме на синтетических данных. Вывод `wyrm` и `basilisk` взят из прогонов на учебных целях. `wraith`, `banshee` и `chimera` проверены только на своих учебных правилах, имитациях и синтетических данных. Таблица `citadel` посчитана на полигоне с намеренно наивным агентом. Методология и ограничения каждого проекта описаны в его README.
+> **Состояние проектов.** Скриншоты `ghoul`, `shroud`, `silhouette` и `ectoplasm` сняты в демо-режиме на синтетических данных. Вывод `wyrm` и `basilisk` взят из прогонов на учебных целях. `exorcist`, `banshee` и `chimera` проверены только на своих учебных правилах, имитациях и синтетических данных. Таблица `citadel` посчитана на полигоне с намеренно наивным агентом. Методология и ограничения каждого проекта описаны в его README.
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 
