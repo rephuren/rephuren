@@ -27,7 +27,7 @@
 <a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a>
 </p>
 
-<details><summary>screenshots</summary>
+<details><summary><img src="assets/shots-en.svg" alt="screenshots" width="830"/></summary>
 
 **`citadel`**
 
@@ -59,7 +59,7 @@
 
 </details>
 
-> **Project status.** Screenshots of `ghoul`, `shroud`, `silhouette` and `ectoplasm` come from demo mode on synthetic data. `wyrm` and `basilisk` output comes from runs on training targets. `exorcist`, `banshee` and `chimera` were checked only on their own teaching rules, mocks and synthetic data. The `citadel` table was computed on a range with a deliberately naive agent. Methodology and limitations are described in each project's README.
+<p align="center"><img src="assets/note-en.svg" alt="Project status: Screenshots of ghoul, shroud, silhouette and ectoplasm come from demo mode on synthetic data. wyrm and basilisk output comes from runs on training targets. exorcist, banshee, chimera and gargoyle were checked only on their own teaching rules, mocks and synthetic data. The citadel table was computed on a range with a deliberately naive agent. Methodology and limitations are described in each project's README." width="830"/></p>
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 

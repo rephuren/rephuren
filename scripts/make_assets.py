@@ -1,5 +1,6 @@
 """Генерирует оформление профиля: карточки проектов, разделители и подвал (SVG), рамки для скриншотов.
 Запуск: python3 scripts/make_assets.py. Зависимость только у рамок: Pillow."""
+import textwrap
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -78,6 +79,35 @@ def whoami(lang: str) -> str:
   {out}
   <text x="806" y="30" font-size="14" fill="{RED}" text-anchor="end">&gt;<tspan class="blink">_</tspan></text>
   <rect width="830" height="224" fill="url(#scan)"/>
+</svg>
+"""
+
+
+def note(text: str, label: str) -> str:
+    """Заметка о состоянии проектов в стиле карточек вместо серой цитаты GitHub. Полный текст лежит и в aria-label."""
+    lines = textwrap.wrap(text, 104)
+    h = 56 + 20 * len(lines)
+    body = "".join(f'<text x="24" y="{54 + 20 * i}" font-size="12.5" fill="{TEXT if i else TEXT}">{escape(l)}</text>' for i, l in enumerate(lines))
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 {h}" width="830" height="{h}" role="img" aria-label="{escape(label)}: {escape(text)}">
+  <title>{escape(label)}</title>
+  <defs><pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#fff" opacity="0.04"/></pattern>{STYLE}</defs>
+  <rect x="0.5" y="0.5" width="829" height="{h - 1}" rx="2" fill="{PANEL}" stroke="{LINE}"/>
+  <rect x="0" y="0" width="4" height="{h}" fill="{RED}"/>
+  <text x="24" y="30" font-size="12" fill="{RED}" letter-spacing="3">! {escape(label.upper())}</text>
+  {body}
+  <rect width="830" height="{h}" fill="url(#scan)"/>
+</svg>
+"""
+
+
+def shots_button(label: str) -> str:
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 40" width="830" height="40" role="img" aria-label="{escape(label)}">
+  <title>{escape(label)}</title>
+  <defs><style>text {{ font-family: 'Courier New', Menlo, Consolas, monospace; }}</style></defs>
+  <rect x="0.5" y="0.5" width="829" height="39" rx="2" fill="{PANEL}" stroke="{LINE}"/>
+  <rect x="0" y="0" width="4" height="40" fill="{RED}"/>
+  <text x="24" y="25" font-size="12.5" fill="{TEXT}" letter-spacing="3">{escape(label.upper())}</text>
+  <text x="806" y="25" font-size="12.5" fill="{DIM}" text-anchor="end">7 png</text>
 </svg>
 """
 
@@ -227,6 +257,10 @@ def main() -> None:
     (ASSETS / "footer.svg").write_text(footer(), encoding="utf-8")
     for lg in ("ru", "en"):
         (ASSETS / f"whoami-{lg}.svg").write_text(whoami(lg), encoding="utf-8")
+    for lg, (lab, txt) in {'ru': ('Состояние проектов', 'Скриншоты ghoul, shroud, silhouette и ectoplasm сняты в демо-режиме на синтетических данных. Вывод wyrm и basilisk взят из прогонов на учебных целях. exorcist, banshee, chimera и gargoyle проверены только на своих учебных правилах, имитациях и синтетических данных. Таблица citadel посчитана на полигоне с намеренно наивным агентом. Методология и ограничения каждого проекта описаны в его README.'), 'en': ('Project status', "Screenshots of ghoul, shroud, silhouette and ectoplasm come from demo mode on synthetic data. wyrm and basilisk output comes from runs on training targets. exorcist, banshee, chimera and gargoyle were checked only on their own teaching rules, mocks and synthetic data. The citadel table was computed on a range with a deliberately naive agent. Methodology and limitations are described in each project's README.")}.items():
+        (ASSETS / f"note-{lg}.svg").write_text(note(txt, lab), encoding="utf-8")
+    for lg, lab in (("ru", "скриншоты"), ("en", "screenshots")):
+        (ASSETS / f"shots-{lg}.svg").write_text(shots_button(lab), encoding="utf-8")
     (ASSETS / "stats.svg").write_text(stats_svg(), encoding="utf-8")
     try:
         frame_images()

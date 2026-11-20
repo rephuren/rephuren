@@ -27,7 +27,7 @@
 <a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a>
 </p>
 
-<details><summary>скриншоты</summary>
+<details><summary><img src="assets/shots-ru.svg" alt="скриншоты" width="830"/></summary>
 
 **`citadel`**
 
@@ -59,7 +59,7 @@
 
 </details>
 
-> **Состояние проектов.** Скриншоты `ghoul`, `shroud`, `silhouette` и `ectoplasm` сняты в демо-режиме на синтетических данных. Вывод `wyrm` и `basilisk` взят из прогонов на учебных целях. `exorcist`, `banshee` и `chimera` проверены только на своих учебных правилах, имитациях и синтетических данных. Таблица `citadel` посчитана на полигоне с намеренно наивным агентом. Методология и ограничения каждого проекта описаны в его README.
+<p align="center"><img src="assets/note-ru.svg" alt="Состояние проектов: Скриншоты ghoul, shroud, silhouette и ectoplasm сняты в демо-режиме на синтетических данных. Вывод wyrm и basilisk взят из прогонов на учебных целях. exorcist, banshee, chimera и gargoyle проверены только на своих учебных правилах, имитациях и синтетических данных. Таблица citadel посчитана на полигоне с намеренно наивным агентом. Методология и ограничения каждого проекта описаны в его README." width="830"/></p>
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 
