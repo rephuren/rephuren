@@ -62,9 +62,9 @@ stack : python · typescript · c · c++
 
 </details>
 
-**[`necropsy`](https://github.com/rephuren/necropsy).** Binary dissection: own dependency-free ELF and PE parsers in Go (checksec-style hardening, imports, per-section entropy), classified ASCII/UTF-16 strings, ImHex patterns for the headers, plus two local x86-64 exploitation labs with pwntools walkthroughs (`ret2win`, `fmt-leak`). Parsers are cross-checked against `debug/elf` and `debug/pe` on real binaries; the ImHex patterns have not been run inside ImHex, and the labs are C-built teaching targets rather than hand-written assembly.
+**[`necropsy`](https://github.com/rephuren/necropsy).** Binary dissection: own dependency-free ELF and PE parsers in Go (checksec-style hardening, imports, per-section entropy), classified ASCII/UTF-16 strings, ImHex patterns for the headers, plus two local x86-64 exploitation labs with pwntools walkthroughs (`ret2win`, `fmt-leak`). Parsers are cross-checked against `debug/elf` and `debug/pe` on real binaries; the ImHex patterns have not been run inside ImHex, and the labs are C-built teaching targets rather than hand-written assembly, compile-checked in CI but not run live (built on Mac arm64, no Linux x86-64 at hand).
 
-`go` · `imhex` · zero dependencies · 21 tests
+`go` · `imhex` · `pwntools` · 21 tests
 
 **[`ghoul`](https://github.com/rephuren/ghoul).** Pretends to be a compromised server and records which passwords bots try, which commands they run and where they download malware from. The shell is fake; nothing is executed.
 
