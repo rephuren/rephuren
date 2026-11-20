@@ -163,29 +163,6 @@ $ cat ~/focus
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 
-## ▓ СЕТАП
-
-```bash
-$ neofetch --machines
-
-mac
-  модель : MacBook Pro
-           Apple M5 (10 ядер)
-  память : 16 GB · 512 GB ssd
-  ос     : macOS 26
-
-pc
-  cpu    : AMD Ryzen 7 5700X
-  gpu    : NVIDIA RTX 3080
-  ram    : 64 GB DDR4
-           HyperX Renegade RGB
-  плата  : MSI B450
-  ос     : Windows (твикнутая)
-           Kali Linux (dual boot)
-```
-
-<p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
-
 ## ▓ СТАТИСТИКА
 
 <p align="center"><img src="assets/stats.svg" alt="статистика профиля: проекты, тесты, коммиты, языки" width="830"/></p>
