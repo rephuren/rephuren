@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 26" width="136" height="26" role="img" aria-label="basilisk">
+  <title>basilisk</title>
+  <defs><style>text { font-family: 'Courier New', Menlo, Consolas, monospace; }</style></defs>
+  <rect x="0" y="3" width="3" height="20" fill="#b3000f"/>
+  <text x="14" y="19" font-size="15" font-weight="700" fill="#e8e8e8" letter-spacing="3">BASILISK</text>
+  <text x="130" y="19" font-size="13" fill="#b3000f" text-anchor="end">&gt;</text>
+</svg>

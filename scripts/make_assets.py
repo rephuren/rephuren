@@ -180,17 +180,32 @@ def write_stack(cats: list, links: dict) -> str:
     return "\n\n".join(parts)
 
 
+def project_label(name: str) -> str:
+    w = round(len(name) * 12 + 40)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 26" width="{w}" height="26" role="img" aria-label="{escape(name)}">
+  <title>{escape(name)}</title>
+  <defs><style>text {{ font-family: 'Courier New', Menlo, Consolas, monospace; }}</style></defs>
+  <rect x="0" y="3" width="3" height="20" fill="{RED}"/>
+  <text x="14" y="19" font-size="15" font-weight="700" fill="{TEXT}" letter-spacing="3">{escape(name.upper())}</text>
+  <text x="{w - 6}" y="19" font-size="13" fill="{RED}" text-anchor="end">&gt;</text>
+</svg>
+"""
+
+
 def projects_markup(lang: str) -> str:
-    """Блок проектов: карточка, под ней короткий текст, у части проектов скриншот. Тексты лежат в scripts/projects.json."""
+    """Сначала сетка карточек, ниже по порядку: название-ссылка, короткий текст, скриншот. Тексты лежат в scripts/projects.json."""
     import json as _json
 
     data = _json.loads((ROOT / "scripts" / "projects.json").read_text(encoding="utf-8"))
-    out = []
+    proj = ASSETS / "proj"
+    proj.mkdir(exist_ok=True)
+    grid = '<p align="center">\n' + "".join(f'<a href="https://github.com/rephuren/{n}"><img src="assets/cards/{n}.svg" alt="{n}" width="400"/></a>\n' for n in data["order"]) + "</p>"
+    out = [grid]
     for n in data["order"]:
-        text = "<br/>\n".join(textwrap.wrap(data[lang][n], 66))
-        block = f'<p align="center">\n<a href="https://github.com/rephuren/{n}"><img src="assets/cards/{n}.svg" alt="{n}" width="400"/></a><br/>\n{text}\n</p>'
+        (proj / f"{n}.svg").write_text(project_label(n), encoding="utf-8")
+        block = f'<a href="https://github.com/rephuren/{n}"><img src="assets/proj/{n}.svg" alt="{n}" height="26"/></a>\n\n{data[lang][n]}'
         if n in data["shots"]:
-            block += f'\n\n<p align="center"><img src="assets/{n}.png" alt="{n}" width="640"/></p>'
+            block += f'\n\n<p align="center"><img src="assets/{n}.png" alt="{n}" width="720"/></p>'
         out.append(block)
     return "\n\n".join(out)
 
