@@ -158,8 +158,6 @@ $ cat ~/focus
 
 <p align="center"><img src="assets/stats.svg" alt="статистика профиля: проекты, тесты, коммиты, языки" width="830"/></p>
 
-<sub>Считается скриптом <code>scripts/make_assets.py</code> по публичным репозиториям: тесты это число тестов проектов, языки по данным GitHub (в байтах). Это не рейтинг, а сводка того, что здесь собрано.</sub>
-
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 
 ## ▓ КОНТАКТЫ
