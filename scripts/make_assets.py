@@ -271,13 +271,13 @@ def footer() -> str:
 def frame_images() -> None:
     """Тонкая серая рамка 2 px: на чёрном фоне едва заметна, а на белом странице светлой темы не даёт картинке «висеть коробкой»."""
     from PIL import Image
-    for name in ("ghoul", "shroud", "silhouette", "wyrm", "basilisk", "citadel", "ectoplasm"):
+    for name in ("ghoul", "shroud", "silhouette", "wyrm", "basilisk", "citadel", "ectoplasm", "exorcist", "gargoyle", "banshee", "chimera", "necropsy"):
         path = ASSETS / f"{name}.png"
-        if not path.exists():
-            continue
         src = ASSETS / "src" / f"{name}.png"
         src.parent.mkdir(exist_ok=True)
         if not src.exists():
+            if not path.exists():
+                continue
             src.write_bytes(path.read_bytes())  # оригинал без рамки хранится рядом, чтобы повторный запуск не рисовал рамку поверх рамки
         im = Image.open(src).convert("RGB")
         out = Image.new("RGB", (im.width + 4, im.height + 4), (58, 58, 58))

@@ -1,0 +1,10 @@
+$ gargoyle demo
+wrote /private/tmp/claude-501/-Users-rephuren-Documents-gitprofile/ccaec8ef-764a-4ac6-88a7-58eeeaadcf45/scratchpad/shots/g.jsonl
+events 9 · honeytoken uses 1
+severity: medium x5, high x4
+rules: sensitive-path x3, honeytoken-used x1, log4shell x1, path-traversal x1, prompt-injection x1, scanner-ua x1, sql-injection x1, xss x1
+actions: logged x6, decoy x3
+OWASP: A05 x4, A03 x2, A01 x1, A06 x1, LLM01 x1
+ATT&CK (as tagged by rules): T1190 x5, T1595.003 x3, T1078 x1, T1595.002 x1
+top IPs: 203.0.113.7 x4, 192.0.2.44 x2, 198.51.100.23 x2, 192.0.2.51 x1
+top paths: /.env x2, / x1, /chat x1, /comment x1, /files x1, /item x1, /login x1, /wp-login.php x1

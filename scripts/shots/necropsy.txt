@@ -1,0 +1,17 @@
+$ necropsy inspect necropsy-linux-amd64
+necropsy-linux-amd64: ELF 64-bit x86-64, executable, entry 0x484700
+hardening: PIE no · NX yes · RELRO none · canary no · fortify no · stripped no · static yes
+sections:
+  .note.go.buildid   A    addr 0x400f78     size 100      entropy 5.25
+  .note.gnu.build-id A    addr 0x400fdc     size 36       entropy 4.25
+  .text              AX   addr 0x401000     size 1376977  entropy 6.23
+  .rodata            A    addr 0x552000     size 94690    entropy 5.44
+  .gopclntab         A    addr 0x5691e8     size 1144847  entropy 5.75
+  .go.type           A    addr 0x680a00     size 240560   entropy 4.43
+  .go.func           A    addr 0x6bb5b0     size 1528     entropy 3.01
+  .go.buildinfo      AW   addr 0x6bc000     size 912      entropy 5.45
+  .go.fipsinfo       AW   addr 0x6bc3a0     size 120      entropy 4.33
+  .go.module         AW   addr 0x6bc420     size 568      entropy 2.11
+  .noptrdata         AW   addr 0x6bc660     size 80098    entropy 5.59
+  .data              AW   addr 0x6cff60     size 39698    entropy 1.89
+  ...

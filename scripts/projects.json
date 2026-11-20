@@ -3,15 +3,15 @@
   "citadel",
   "basilisk",
   "ectoplasm",
+  "ghoul",
+  "shroud",
+  "silhouette",
+  "wyrm",
   "exorcist",
   "gargoyle",
   "banshee",
   "chimera",
-  "necropsy",
-  "ghoul",
-  "shroud",
-  "silhouette",
-  "wyrm"
+  "necropsy"
  ],
  "shots": [
   "citadel",
@@ -20,7 +20,12 @@
   "ghoul",
   "shroud",
   "silhouette",
-  "wyrm"
+  "wyrm",
+  "exorcist",
+  "gargoyle",
+  "banshee",
+  "chimera",
+  "necropsy"
  ],
  "ru": {
   "citadel": "Шлюз между ИИ-клиентом и MCP-серверами: политики на вызовы, отслеживание заражённых данных, закрепление определений. На полигоне без шлюза проходят 9 атак из 9, с защитой ни одной; полигон намеренно простой.",

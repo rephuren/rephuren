@@ -1,0 +1,9 @@
+$ chimera-core read demo.pcap --db events.db
+packets 20 · decoded 20 · skipped 0 · dns 8 · tls hellos 12
+
+$ chimera-analyze report --db events.db
+flows 20 · dns 8 · tls 12 · host connections 0
+[medium] beacon                   update.cdn-example.test
+         10 connections from 192.168.1.10 to 203.0.113.9 every 60 s (jitter 2%): regular, like automated check-ins
+[medium] dns-high-entropy         x7k2q9vz1m4p8d3w.test
+         label "x7k2q9vz1m4p8d3w" has entropy 4.00 bits/char: looks generated rather than chosen
