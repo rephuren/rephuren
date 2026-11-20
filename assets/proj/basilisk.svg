@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 26" width="136" height="26" role="img" aria-label="basilisk">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 30" width="152" height="30" role="img" aria-label="basilisk">
   <title>basilisk</title>
   <defs><style>text { font-family: 'Courier New', Menlo, Consolas, monospace; }</style></defs>
-  <rect x="0" y="3" width="3" height="20" fill="#b3000f"/>
-  <text x="14" y="19" font-size="15" font-weight="700" fill="#e8e8e8" letter-spacing="3">BASILISK</text>
-  <text x="130" y="19" font-size="13" fill="#b3000f" text-anchor="end">&gt;</text>
+  <rect x="0.5" y="0.5" width="151" height="29" rx="2" fill="#0b0b0b" stroke="#2a2a2a"/>
+  <rect x="0" y="0" width="4" height="30" fill="#b3000f"/>
+  <text x="18" y="20.5" font-size="15" font-weight="700" fill="#e8e8e8" letter-spacing="3">BASILISK</text>
+  <text x="138" y="20" font-size="13" fill="#b3000f" text-anchor="end">&gt;</text>
 </svg>

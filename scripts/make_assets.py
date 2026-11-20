@@ -181,13 +181,14 @@ def write_stack(cats: list, links: dict) -> str:
 
 
 def project_label(name: str) -> str:
-    w = round(len(name) * 12 + 40)
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 26" width="{w}" height="26" role="img" aria-label="{escape(name)}">
+    w = round(len(name) * 12 + 56)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} 30" width="{w}" height="30" role="img" aria-label="{escape(name)}">
   <title>{escape(name)}</title>
   <defs><style>text {{ font-family: 'Courier New', Menlo, Consolas, monospace; }}</style></defs>
-  <rect x="0" y="3" width="3" height="20" fill="{RED}"/>
-  <text x="14" y="19" font-size="15" font-weight="700" fill="{TEXT}" letter-spacing="3">{escape(name.upper())}</text>
-  <text x="{w - 6}" y="19" font-size="13" fill="{RED}" text-anchor="end">&gt;</text>
+  <rect x="0.5" y="0.5" width="{w - 1}" height="29" rx="2" fill="{PANEL}" stroke="{LINE}"/>
+  <rect x="0" y="0" width="4" height="30" fill="{RED}"/>
+  <text x="18" y="20.5" font-size="15" font-weight="700" fill="{TEXT}" letter-spacing="3">{escape(name.upper())}</text>
+  <text x="{w - 14}" y="20" font-size="13" fill="{RED}" text-anchor="end">&gt;</text>
 </svg>
 """
 
@@ -203,7 +204,7 @@ def projects_markup(lang: str) -> str:
     out = [grid]
     for n in data["order"]:
         (proj / f"{n}.svg").write_text(project_label(n), encoding="utf-8")
-        block = f'<a href="https://github.com/rephuren/{n}"><img src="assets/proj/{n}.svg" alt="{n}" height="26"/></a>\n\n{data[lang][n]}'
+        block = f'<a href="https://github.com/rephuren/{n}"><img src="assets/proj/{n}.svg" alt="{n}" height="30"/></a>\n\n{data[lang][n]}'
         if n in data["shots"]:
             block += f'\n\n<p align="center"><img src="assets/{n}.png" alt="{n}" width="720"/></p>'
         out.append(block)
