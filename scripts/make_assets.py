@@ -203,8 +203,8 @@ def projects_markup(lang: str) -> str:
     grid = '<p align="center">\n' + "".join(f'<a href="https://github.com/rephuren/{n}"><img src="assets/cards/{n}.svg" alt="{n}" width="400"/></a>\n' for n in data["order"]) + "</p>"
     out = [grid]
     for n in data["order"]:
-        (proj / f"{n}.svg").write_text(project_label(n), encoding="utf-8")
-        block = f'<a href="https://github.com/rephuren/{n}"><img src="assets/proj/{n}.svg" alt="{n}" height="30"/></a>\n\n{data[lang][n]}'
+        (proj / f"{n}-label.svg").write_text(project_label(n), encoding="utf-8")
+        block = f'<a href="https://github.com/rephuren/{n}"><img src="assets/proj/{n}-label.svg" alt="{n}" height="30"/></a>\n\n{data[lang][n]}'
         if n in data["shots"]:
             block += f'\n\n<p align="center"><img src="assets/{n}.png" alt="{n}" width="720"/></p>'
         out.append(block)
