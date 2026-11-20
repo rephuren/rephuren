@@ -4,7 +4,7 @@
 
 </div>
 
-<p align="center"><a href="README.en.md">English version</a></p>
+<p align="center"><img src="assets/lang-ru-on.svg" alt="RU" width="76"/>&nbsp;<a href="README.en.md"><img src="assets/lang-en-off.svg" alt="EN" width="76"/></a></p>
 
 ```bash
 $ whoami

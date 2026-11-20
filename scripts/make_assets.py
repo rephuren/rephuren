@@ -46,6 +46,20 @@ def card(name: str, title: str, line: str, tags: str, tests: str) -> str:
 """
 
 
+def lang_button(code: str, active: bool) -> str:
+    """Маленькая кнопка переключения языка в стиле карточек: активная с красной полоской, неактивная приглушённая."""
+    bar = RED if active else LINE
+    fill = TEXT if active else DIM
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 28" width="76" height="28" role="img" aria-label="{code}">
+  <title>{code}</title>
+  <defs><style>text {{ font-family: 'Courier New', Menlo, Consolas, monospace; }}</style></defs>
+  <rect x="0.5" y="0.5" width="75" height="27" rx="2" fill="{PANEL}" stroke="{LINE}"/>
+  <rect x="0" y="0" width="3" height="28" fill="{bar}"/>
+  <text x="38" y="18.5" font-size="12" fill="{fill}" text-anchor="middle" letter-spacing="3">{code}</text>
+</svg>
+"""
+
+
 def divider() -> str:
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 22" width="830" height="22" role="presentation" aria-hidden="true">
   <defs>
@@ -166,6 +180,9 @@ def main() -> None:
     cards.mkdir(exist_ok=True)
     for name, title, line, tags, tests in PROJECTS:
         (cards / f"{name}.svg").write_text(card(name, title, line, tags, tests), encoding="utf-8")
+    for code in ("RU", "EN"):
+        for state, active in (("on", True), ("off", False)):
+            (ASSETS / f"lang-{code.lower()}-{state}.svg").write_text(lang_button(code, active), encoding="utf-8")
     (ASSETS / "divider.svg").write_text(divider(), encoding="utf-8")
     (ASSETS / "footer.svg").write_text(footer(), encoding="utf-8")
     (ASSETS / "stats.svg").write_text(stats_svg(), encoding="utf-8")

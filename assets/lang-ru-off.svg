@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 28" width="76" height="28" role="img" aria-label="RU">
+  <title>RU</title>
+  <defs><style>text { font-family: 'Courier New', Menlo, Consolas, monospace; }</style></defs>
+  <rect x="0.5" y="0.5" width="75" height="27" rx="2" fill="#0b0b0b" stroke="#2a2a2a"/>
+  <rect x="0" y="0" width="3" height="28" fill="#2a2a2a"/>
+  <text x="38" y="18.5" font-size="12" fill="#8a8a8a" text-anchor="middle" letter-spacing="3">RU</text>
+</svg>
