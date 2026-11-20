@@ -25,6 +25,9 @@ $ cat ~/focus
 <a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
 <a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
 <a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
+<a href="https://github.com/rephuren/wraith"><img src="assets/cards/wraith.svg" alt="wraith" width="400"/></a>
+<a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a>
+<a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a>
 <a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a>
 <a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a>
 <a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a>
@@ -61,6 +64,18 @@ $ cat ~/focus
 <img src="assets/ectoplasm.png" alt="отчёт ectoplasm" width="560"/>
 
 </details>
+
+**[`wraith`](https://github.com/rephuren/wraith).** Стенд проверки LLM-приложения: кладёт в системный промпт безвредные «канарейки» и 18 вариантами атак (подмена инструкций, инъекция через документ, утечка промпта, вынос данных картинкой, вызов инструмента по чужой команде) смотрит, что приложение выдало или исполнило. Пробы привязаны к OWASP LLM Top 10 и MITRE ATLAS; цели: OpenAI-совместимый эндпоинт, команда, две учебные имитации. На настоящей модели не запускался.
+
+`python` · `owasp llm` · `mitre atlas` · 0 зависимостей · 16 тестов
+
+**[`banshee`](https://github.com/rephuren/banshee).** Движок правил для защиты на Rust: читает подмножество Sigma и YARA, прогоняет по журналам событий и по файлам и сводит срабатывания по техникам MITRE ATT&CK. То, чего движок не понимает, отклоняется с причиной, а не молча пропускается. Проверен на своих правилах и придуманных данных, не на SigmaHQ.
+
+`rust` · `sigma` · `yara` · `mitre att&ck` · 26 тестов
+
+**[`chimera`](https://github.com/rephuren/chimera).** Пассивный сенсор: ядро на C разбирает pcap (DNS, TLS SNI, потоки) и пишет в SQLite, анализатор на Go ищет биконы, DNS-туннели и сканирование и показывает дашборд. Проверен на синтетическом pcap, на живом трафике не гонялся; агентов хоста пока нет.
+
+`c` · `go` · `sql` · `sqlite` · 74 проверки (59 на C, 15 на Go)
 
 **[`necropsy`](https://github.com/rephuren/necropsy).** Вскрытие бинарников: свой разборщик ELF и PE на Go без зависимостей (защита в духе checksec, импорты, секции с энтропией), строки ASCII и UTF-16 с классификацией и паттерны ImHex для заголовков, плюс две локальные лаборатории эксплуатации x86-64 с разборами на pwntools (`ret2win`, `fmt-leak`). Разборщики сверены с `debug/elf` и `debug/pe` на реальных бинарниках; паттерны ImHex в самом ImHex не запускались, а лаборатории — учебные C-бинарники (не исходники на ассемблере), проверенные компиляцией в CI, но не живым запуском (писались на Mac arm64, без Linux x86-64 под рукой).
 
@@ -106,7 +121,7 @@ $ cat ~/focus
 
 </details>
 
-> **Состояние проектов.** Скриншоты `ghoul`, `shroud`, `silhouette` и `ectoplasm` сняты в демо-режиме на синтетических данных. Вывод `wyrm` и `basilisk` взят из прогонов на учебных целях. Таблица `citadel` посчитана на полигоне с намеренно наивным агентом. Методология и ограничения каждого проекта описаны в его README.
+> **Состояние проектов.** Скриншоты `ghoul`, `shroud`, `silhouette` и `ectoplasm` сняты в демо-режиме на синтетических данных. Вывод `wyrm` и `basilisk` взят из прогонов на учебных целях. `wraith`, `banshee` и `chimera` проверены только на своих учебных правилах, имитациях и синтетических данных. Таблица `citadel` посчитана на полигоне с намеренно наивным агентом. Методология и ограничения каждого проекта описаны в его README.
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 

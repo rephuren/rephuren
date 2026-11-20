@@ -25,6 +25,9 @@ stack : python · typescript · c · c++
 <a href="https://github.com/rephuren/citadel"><img src="assets/cards/citadel.svg" alt="citadel" width="400"/></a>
 <a href="https://github.com/rephuren/basilisk"><img src="assets/cards/basilisk.svg" alt="basilisk" width="400"/></a>
 <a href="https://github.com/rephuren/ectoplasm"><img src="assets/cards/ectoplasm.svg" alt="ectoplasm" width="400"/></a>
+<a href="https://github.com/rephuren/wraith"><img src="assets/cards/wraith.svg" alt="wraith" width="400"/></a>
+<a href="https://github.com/rephuren/banshee"><img src="assets/cards/banshee.svg" alt="banshee" width="400"/></a>
+<a href="https://github.com/rephuren/chimera"><img src="assets/cards/chimera.svg" alt="chimera" width="400"/></a>
 <a href="https://github.com/rephuren/necropsy"><img src="assets/cards/necropsy.svg" alt="necropsy" width="400"/></a>
 <a href="https://github.com/rephuren/ghoul"><img src="assets/cards/ghoul.svg" alt="ghoul" width="400"/></a>
 <a href="https://github.com/rephuren/shroud"><img src="assets/cards/shroud.svg" alt="shroud" width="400"/></a>
@@ -61,6 +64,18 @@ stack : python · typescript · c · c++
 <img src="assets/ectoplasm.png" alt="ectoplasm" width="560"/>
 
 </details>
+
+**[`wraith`](https://github.com/rephuren/wraith).** A test stand for LLM applications: plants harmless canaries in the system prompt and uses 18 attack variants (instruction override, indirect injection via a document, prompt leakage, exfiltration through an image URL, tool calls driven by foreign text) to see what the app gave away or executed. Probes map to the OWASP LLM Top 10 and MITRE ATLAS; targets are an OpenAI-compatible endpoint, a command, or two teaching mocks. Not run against a real model.
+
+`python` · `owasp llm` · `mitre atlas` · zero dependencies · 16 tests
+
+**[`banshee`](https://github.com/rephuren/banshee).** A defensive rule engine in Rust: reads a subset of Sigma and YARA, runs it over event logs and files, and summarizes hits by MITRE ATT&CK technique. Whatever the engine does not understand is rejected with a reason, never silently skipped. Tested on my own rules and invented data, not on SigmaHQ.
+
+`rust` · `sigma` · `yara` · `mitre att&ck` · 26 tests
+
+**[`chimera`](https://github.com/rephuren/chimera).** A passive sensor: a C core parses pcap (DNS, TLS SNI, flows) into SQLite, a Go analyzer looks for beacons, DNS tunnels and scans and serves a dashboard. Checked on a synthetic pcap, not on live traffic; host agents are not there yet.
+
+`c` · `go` · `sql` · `sqlite` · 74 checks (59 in C, 15 in Go)
 
 **[`necropsy`](https://github.com/rephuren/necropsy).** Binary dissection: own dependency-free ELF and PE parsers in Go (checksec-style hardening, imports, per-section entropy), classified ASCII/UTF-16 strings, ImHex patterns for the headers, plus two local x86-64 exploitation labs with pwntools walkthroughs (`ret2win`, `fmt-leak`). Parsers are cross-checked against `debug/elf` and `debug/pe` on real binaries; the ImHex patterns have not been run inside ImHex, and the labs are C-built teaching targets rather than hand-written assembly, compile-checked in CI but not run live (built on Mac arm64, no Linux x86-64 at hand).
 
@@ -106,7 +121,7 @@ stack : python · typescript · c · c++
 
 </details>
 
-> **Project status.** Screenshots of `ghoul`, `shroud`, `silhouette` and `ectoplasm` come from demo mode on synthetic data. `wyrm` and `basilisk` output comes from runs on training targets. The `citadel` table was computed on a range with a deliberately naive agent. Methodology and limitations are described in each project's README.
+> **Project status.** Screenshots of `ghoul`, `shroud`, `silhouette` and `ectoplasm` come from demo mode on synthetic data. `wyrm` and `basilisk` output comes from runs on training targets. `wraith`, `banshee` and `chimera` were checked only on their own teaching rules, mocks and synthetic data. The `citadel` table was computed on a range with a deliberately naive agent. Methodology and limitations are described in each project's README.
 
 <p align="center"><img src="assets/divider.svg" alt="" width="830"/></p>
 
