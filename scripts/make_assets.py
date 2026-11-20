@@ -50,6 +50,37 @@ def card(name: str, title: str, line: str, tags: str, tests: str) -> str:
 """
 
 
+WHOAMI = {
+    "ru": ("фокус", "инфобез, защита, исследования", "стек", ["python · typescript · c · c++", "bash · linux · osint", "ai security (ниже подробно)"]),
+    "en": ("focus", "infosec, defense, research", "stack", ["python · typescript · c · c++", "bash · linux · osint", "ai security (details below)"]),
+}
+
+
+def whoami(lang: str) -> str:
+    """Блок «кто я» в стиле карточек вместо серого блока кода GitHub: тот же текст, свой оформление и без кнопки копирования."""
+    focus_l, focus_v, stack_l, stack = WHOAMI[lang]
+    rows = [
+        (30, f'<tspan fill="{RED}">$</tspan> <tspan fill="{TEXT}">whoami</tspan>'),
+        (52, f'<tspan fill="{TEXT}" font-weight="700">misxnthropy</tspan>'),
+        (96, f'<tspan fill="{RED}">$</tspan> <tspan fill="{TEXT}">cat ~/focus</tspan>'),
+    ]
+    out = "".join(f'<text x="28" y="{y}" font-size="15">{t}</text>' for y, t in rows)
+    out += f'<text x="28" y="120" font-size="15" fill="{DIM}">{escape(focus_l)}</text><text x="120" y="120" font-size="15" fill="{RED}">:</text><text x="140" y="120" font-size="15" fill="{TEXT}">{escape(focus_v)}</text>'
+    out += f'<text x="28" y="144" font-size="15" fill="{DIM}">{escape(stack_l)}</text><text x="120" y="144" font-size="15" fill="{RED}">:</text>'
+    for i, line in enumerate(stack):
+        out += f'<text x="140" y="{144 + i * 24}" font-size="15" fill="{TEXT}">{escape(line)}</text>'
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 224" width="830" height="224" role="img" aria-label="whoami: misxnthropy. {escape(focus_l)}: {escape(focus_v)}. {escape(stack_l)}: {escape(', '.join(stack))}">
+  <title>whoami</title>
+  <defs><pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#fff" opacity="0.04"/></pattern>{STYLE}</defs>
+  <rect x="0.5" y="0.5" width="829" height="223" rx="2" fill="{PANEL}" stroke="{LINE}"/>
+  <rect x="0" y="0" width="4" height="224" fill="{RED}"/>
+  {out}
+  <text x="806" y="30" font-size="14" fill="{RED}" text-anchor="end">&gt;<tspan class="blink">_</tspan></text>
+  <rect width="830" height="224" fill="url(#scan)"/>
+</svg>
+"""
+
+
 def lang_button(code: str, active: bool) -> str:
     """Маленькая кнопка переключения языка в стиле карточек: активная с красной полоской, неактивная приглушённая."""
     bar = RED if active else LINE
@@ -146,35 +177,39 @@ def stats_svg() -> str:
         except (TypeError, KeyError):
             pass
     tests = sum(int(p[4].split()[0]) for p in PROJECTS)
-    shown = [(k, v) for k, v in sorted(langs.items(), key=lambda kv: -kv[1]) if k not in ("Makefile", "CMake", "Shell", "Dockerfile")][:5]
+    shown = [(k, v) for k, v in sorted(langs.items(), key=lambda kv: -kv[1]) if k not in ("Makefile", "CMake", "Shell", "Dockerfile")][:8]
     total = sum(v for _, v in shown) or 1
-    shown = [(k, v) for k, v in shown if v / total >= 0.01]  # мелочь меньше процента на карточке только шумит
+    shown = [(k, v) for k, v in shown if v / total >= 0.003]  # мелочь меньше процента на карточке только шумит
     total = sum(v for _, v in shown) or 1
-    colors = [RED, TEXT, DIM, "#555555", "#2e2e2e"]
+    colors = [RED, TEXT, "#b5b5b5", "#8a8a8a", "#686868", "#4d4d4d", "#383838", "#2a2a2a"]
     bar, legend, x = [], [], 24.0
     for i, (lang, size) in enumerate(shown):
         w = 782.0 * size / total
         bar.append(f'<rect x="{x:.1f}" y="150" width="{max(w - 2, 1):.1f}" height="8" fill="{colors[i]}"/>')
         x += w
-        legend.append(f'<rect x="{24 + i * 156}" y="178" width="9" height="9" fill="{colors[i]}"/><text x="{40 + i * 156}" y="187" font-size="12" fill="{TEXT}">{escape(lang)}</text><text x="{40 + i * 156}" y="203" font-size="11" fill="{DIM}">{100 * size / total:.0f}%</text>')
+        col, row = i % 4, i // 4
+        lx, ly = 24 + col * 200, 178 + row * 38
+        pct = f"{100 * size / total:.0f}%" if size / total >= 0.01 else "&lt;1%"
+        legend.append(f'<rect x="{lx}" y="{ly}" width="9" height="9" fill="{colors[i]}"/><text x="{lx + 16}" y="{ly + 9}" font-size="12" fill="{TEXT}">{escape(lang)}</text><text x="{lx + 16}" y="{ly + 25}" font-size="11" fill="{DIM}">{pct}</text>')
+    H = 224 + (38 if len(shown) > 4 else 0)
     numbers = [(str(len(names)), "проектов"), (str(tests), "тестов"), (str(releases), "релизов"), (str(commits), "коммитов")]
     cells = "".join(
         f'<g class="n"><text x="{24 + i * 200}" y="88" font-size="46" font-weight="700" fill="{RED if i == 1 else TEXT}">{escape(v)}</text>'
         f'<text x="{24 + i * 200}" y="112" font-size="12" fill="{DIM}" letter-spacing="2">{escape(label.upper())}</text></g>'
         for i, (v, label) in enumerate(numbers)
     )
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 224" width="830" height="224" role="img" aria-label="статистика: {len(names)} проектов, {tests} тестов, {commits} коммитов">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 {H}" width="830" height="{H}" role="img" aria-label="статистика: {len(names)} проектов, {tests} тестов, {commits} коммитов">
   <title>статистика профиля</title>
   <defs><pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#fff" opacity="0.04"/></pattern>{STYLE}</defs>
-  <rect x="0.5" y="0.5" width="829" height="223" rx="2" fill="{PANEL}" stroke="{LINE}"/>
-  <rect x="0" y="0" width="4" height="224" fill="{RED}"/>
+  <rect x="0.5" y="0.5" width="829" height="{H - 1}" rx="2" fill="{PANEL}" stroke="{LINE}"/>
+  <rect x="0" y="0" width="4" height="{H}" fill="{RED}"/>
   <text x="24" y="36" font-size="13" fill="{DIM}" letter-spacing="3">СТАТИСТИКА</text>
   <text x="806" y="36" font-size="14" fill="{RED}" text-anchor="end">&gt;<tspan class="blink">_</tspan></text>
   {cells}
   <text x="24" y="140" font-size="11" fill="{FAINT}" letter-spacing="2">ЯЗЫКИ ПО ДАННЫМ GITHUB</text>
   {"".join(bar)}
   {"".join(legend)}
-  <rect width="830" height="224" fill="url(#scan)"/>
+  <rect width="830" height="{H}" fill="url(#scan)"/>
 </svg>
 """
 
@@ -189,6 +224,8 @@ def main() -> None:
             (ASSETS / f"lang-{code.lower()}-{state}.svg").write_text(lang_button(code, active), encoding="utf-8")
     (ASSETS / "divider.svg").write_text(divider(), encoding="utf-8")
     (ASSETS / "footer.svg").write_text(footer(), encoding="utf-8")
+    for lg in ("ru", "en"):
+        (ASSETS / f"whoami-{lg}.svg").write_text(whoami(lg), encoding="utf-8")
     (ASSETS / "stats.svg").write_text(stats_svg(), encoding="utf-8")
     try:
         frame_images()
