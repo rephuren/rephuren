@@ -31,9 +31,7 @@ stack : python · typescript · c · c++
 <a href="https://github.com/rephuren/wyrm"><img src="assets/cards/wyrm.svg" alt="wyrm" width="400"/></a>
 </p>
 
-### [`citadel`](https://github.com/rephuren/citadel): security gateway for MCP agents
-
-Sits between an AI client and MCP servers: call policies, taint tracking, a block on the "lethal trifecta" (private data + untrusted content + an outbound channel) in one session, and pinning of tool definitions against rug pulls. Ships with a range of deliberately vulnerable demo servers and a reproducible benchmark: 9 attacks all succeed without the gateway and none with full protection.
+**[`citadel`](https://github.com/rephuren/citadel).** Sits between an AI client and MCP servers: call policies, taint tracking, a block on the "lethal trifecta" (private data + untrusted content + an outbound channel) in one session, and pinning of tool definitions against rug pulls. Ships with a range of deliberately vulnerable demo servers and a reproducible benchmark: 9 attacks all succeed without the gateway and none with full protection.
 
 `typescript` · `node` · `mcp` · zero dependencies · 50 tests
 
@@ -43,9 +41,7 @@ Sits between an AI client and MCP servers: call policies, taint tracking, a bloc
 
 </details>
 
-### [`basilisk`](https://github.com/rephuren/basilisk): static auditor for MCP servers and LLM tools
-
-Reads MCP client configs and tool lists as data and looks for what a model would read as instructions: hidden instructions, invisible Unicode, data-leaking markdown images, tool shadowing, secrets. `pin` and `verify` catch a tool definition changed after approval.
+**[`basilisk`](https://github.com/rephuren/basilisk).** Reads MCP client configs and tool lists as data and looks for what a model would read as instructions: hidden instructions, invisible Unicode, data-leaking markdown images, tool shadowing, secrets. `pin` and `verify` catch a tool definition changed after approval.
 
 `typescript` · `node` · `sarif` · zero dependencies · 65 tests
 
@@ -55,9 +51,7 @@ Reads MCP client configs and tool lists as data and looks for what a model would
 
 </details>
 
-### [`ectoplasm`](https://github.com/rephuren/ectoplasm): post-incident forensics for AI agent sessions
-
-From a session log (Claude Code, Codex, generic JSONL) it shows which untrusted text led to a dangerous action, with a confidence level and the chain of events. PreToolUse hook, HTML report, SARIF, and an open dataset of 75 labelled synthetic sessions. Together with `basilisk` (before) and `citadel` (during) it covers the cycle before, during and after.
+**[`ectoplasm`](https://github.com/rephuren/ectoplasm).** From a session log (Claude Code, Codex, generic JSONL) it shows which untrusted text led to a dangerous action, with a confidence level and the chain of events. PreToolUse hook, HTML report, SARIF, and an open dataset of 75 labelled synthetic sessions. Together with `basilisk` (before) and `citadel` (during) it covers the cycle before, during and after.
 
 `python` · `sarif` · `github action` · 93 tests
 
@@ -67,9 +61,7 @@ From a session log (Claude Code, Codex, generic JSONL) it shows which untrusted 
 
 </details>
 
-### [`ghoul`](https://github.com/rephuren/ghoul): SSH honeypot with a live dashboard
-
-Pretends to be a compromised server and records which passwords bots try, which commands they run and where they download malware from. The shell is fake; nothing is executed.
+**[`ghoul`](https://github.com/rephuren/ghoul).** Pretends to be a compromised server and records which passwords bots try, which commands they run and where they download malware from. The shell is fake; nothing is executed.
 
 `python` · `asyncssh` · `sqlite` · own web dashboard
 
@@ -79,9 +71,7 @@ Pretends to be a compromised server and records which passwords bots try, which 
 
 </details>
 
-### [`shroud`](https://github.com/rephuren/shroud): steganography detector for images
-
-Finds data in file tails, metadata and pixel low bits (zsteg-style LSB, RS analysis, chi-square, JPEG DCT); every verdict is explained.
+**[`shroud`](https://github.com/rephuren/shroud).** Finds data in file tails, metadata and pixel low bits (zsteg-style LSB, RS analysis, chi-square, JPEG DCT); every verdict is explained.
 
 `python` · `numpy` · `pillow` · 24 tests
 
@@ -91,9 +81,7 @@ Finds data in file tails, metadata and pixel low bits (zsteg-style LSB, RS analy
 
 </details>
 
-### [`silhouette`](https://github.com/rephuren/silhouette): external attack-surface monitor
-
-Shows what a domain exposes: subdomains, dangling CNAMEs, headers, email hardening, an A-F grade and a diff between scans. Passive by default; probing needs an explicit authorization flag. Adds `meta` (metadata of your own files), `--shodan` and `--nuclei`.
+**[`silhouette`](https://github.com/rephuren/silhouette).** Shows what a domain exposes: subdomains, dangling CNAMEs, headers, email hardening, an A-F grade and a diff between scans. Passive by default; probing needs an explicit authorization flag. Adds `meta` (metadata of your own files), `--shodan` and `--nuclei`.
 
 `python` · `dnspython` · `sqlite` · 100 tests
 
@@ -103,9 +91,7 @@ Shows what a domain exposes: subdomains, dangling CNAMEs, headers, email hardeni
 
 </details>
 
-### [`wyrm`](https://github.com/rephuren/wyrm): coverage-guided fuzzer in the spirit of AFL
-
-Mutates input, tracks coverage through a shared-memory map and keeps whatever crashes the target under ASan/UBSan. Own instrumentation, crash minimizer, persistent mode and parallel workers.
+**[`wyrm`](https://github.com/rephuren/wyrm).** Mutates input, tracks coverage through a shared-memory map and keeps whatever crashes the target under ASan/UBSan. Own instrumentation, crash minimizer, persistent mode and parallel workers.
 
 `c++` · `clang` · `asan` · `ubsan` · 39 tests
 
